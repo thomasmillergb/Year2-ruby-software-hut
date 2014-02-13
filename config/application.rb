@@ -26,6 +26,10 @@ module HutSample
     config.generators do |g|
       g.orm :active_record
       g.fixture_replacement    :factory_girl, dir: 'spec/factories'
+      g.stylesheets false
+      g.javascripts false
+      g.helper      false
+      g.jbuilder    false
       g.test_framework :rspec, fixture: true,
                                view_specs: false,
                                helper_specs: true,
