@@ -1,9 +1,9 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 ruby '2.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.1'
+gem 'rails', '~> 4.0.1'
 
 # Use sqlite3 as the database for Active Record
 gem 'pg'
@@ -35,6 +35,7 @@ group :doc do
 end
 
 group :development do
+  gem 'thin'
   gem 'capistrano', '~> 2.15'
   gem 'capistrano-ext'
 
@@ -47,6 +48,7 @@ group :test do
 end
 
 group :development, :test do
+  gem 'debugger'
   gem 'factory_girl_rails' # Needed in dev for generating when running scaffold
   gem 'rspec-rails'
 end
@@ -56,9 +58,3 @@ end
 
 # Use unicorn as the app server
 # gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
