@@ -20,5 +20,21 @@ module HutSample
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    config.time_zone = 'London'
+
+    config.generators do |g|
+      g.orm :active_record
+      g.fixture_replacement    :factory_girl, dir: 'spec/factories'
+      g.test_framework :rspec, fixture: true,
+                               view_specs: false,
+                               helper_specs: true,
+                               routing_specs: false,
+                               controller_specs: false,
+                               view_specs: false,
+                               integration_tool: false
+    end
+
+    config.filter_parameters += [:password]
   end
 end
