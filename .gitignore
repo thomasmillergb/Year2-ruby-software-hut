@@ -14,3 +14,7 @@ doc/*
 vendor/bundle/*
 
 *.swp
+
+.ruby-version
+.ruby-gemset
+.rvmrc
