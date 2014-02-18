@@ -3,7 +3,7 @@ db/*.sqlite3
 config/database.yml
 config/settings.yml
 log/*.log
-tmp/
+tmp/*
 
 .DS_Store
 coverage/*
