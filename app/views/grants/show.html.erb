@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @grant.name %>
+</p>
+
+<p>
+  <strong>Datestarted:</strong>
+  <%= @grant.dateStarted %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @grant.status %>
+</p>
+
+<p>
+  <strong>Allocationdeadline:</strong>
+  <%= @grant.allocationDeadline %>
+</p>
+
+<%= link_to 'Edit', edit_grant_path(@grant) %> |
+<%= link_to 'Back', grants_path %>
