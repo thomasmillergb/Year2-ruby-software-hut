@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .bundle
 db/*.sqlite3
 config/database.yml
@@ -19,3 +20,16 @@ vendor/bundle/*
 .ruby-gemset
 .rvmrc
 /.project
+=======
+*.gem
+*~
+.bundle
+.rvmrc
+.yardoc
+Gemfile.lock
+coverage/*
+doc/*
+log/*
+measurement/*
+pkg/*
+>>>>>>> 507132aa012bef84bbf8282499fb3b78bb8e7da7
