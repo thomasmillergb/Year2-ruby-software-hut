@@ -1,12 +1,21 @@
 source 'http://rubygems.org'
 
-ruby '2.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.0.1'
 
-# Use sqlite3 as the database for Active Record
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'pg'
+
+# Use sqlite3 as the database for Active Record
+#Google Auth
+source 'http://rubygems.org'
+
+gem 'sqlite3-ruby', '1.2.5', :require => 'sqlite3fty-generators'
+gem 'google-api-client', :require => 'google/api_client'
+gem 'omniauth', '1.1.0'
+gem 'omniauth-google-oauth2', :git => 'https://github.com/zquestz/omniauth-google-oauth2.git'
+gem 'nifty-generators'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
