@@ -5,7 +5,7 @@
 require File.expand_path('../config/application', __FILE__)
 
 HutSample::Application.load_tasks
-=======
+
 require 'bundler'
 Bundler::GemHelper.install_tasks
 
@@ -23,4 +23,4 @@ rescue LoadError
 end
 
 task :default => [:spec, :rubocop]
->>>>>>> 507132aa012bef84bbf8282499fb3b78bb8e7da7
+
