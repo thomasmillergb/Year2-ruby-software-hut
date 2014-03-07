@@ -5,7 +5,7 @@ HutSample::Application.routes.draw do
   root to: "grants#index"
 
   #Call back route
-  match "/auth/:provider/callback" => "sessions#create"
+  get "/auth/:provider/callback" => "sessions#create"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
