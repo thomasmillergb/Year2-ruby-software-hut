@@ -1,6 +1,8 @@
 HutSample::Application.routes.draw do
 
  
+  resources :users
+
   resources :grants
   root to: "grants#index"
 
