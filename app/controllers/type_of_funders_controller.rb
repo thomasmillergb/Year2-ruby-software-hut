@@ -21,13 +21,14 @@ class TypeOfFundersController < ApplicationController
 
   # POST /type_of_funders
   def create
-    @type_of_funder = TypeOfFunder.new(type_of_funder_params)
 
-    if @type_of_funder.save
-      redirect_to @type_of_funder, notice: 'Type of funder was successfully created.'
-    else
-      render action: 'new'
-    end
+    @type_of_funder =  "as"
+
+#    if @type_of_funder.save
+#      redirect_to @type_of_funder, notice: 'Type of funder was successfully created.'
+ #   else
+  #    render action: 'new'
+  #  end
   end
 
   # PATCH/PUT /type_of_funders/1
