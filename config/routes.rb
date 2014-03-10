@@ -14,7 +14,7 @@ HutSample::Application.routes.draw do
   resources :users
 
 
-  root to: "layouts#application"
+  root to: "grants#index"
 
   #Call back route
   get "/auth/:provider/callback" => "sessions#create"
