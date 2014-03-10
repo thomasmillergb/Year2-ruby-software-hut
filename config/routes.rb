@@ -1,6 +1,8 @@
 HutSample::Application.routes.draw do
 
  
+  resources :types
+
   resources :type_of_funders
 
   resources :funders
