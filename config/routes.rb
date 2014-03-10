@@ -3,20 +3,10 @@ HutSample::Application.routes.draw do
  
   resources :types
 
-  resources :type_of_funders
-
-  resources :funders
-
-  resources :deliverables
-
-  resources :grant_allocations
-
-  resources :grants
-
   resources :users
 
 
-  root to: "grants#index"
+  root to: "users#index"
 
   #Call back route
   get "/auth/:provider/callback" => "sessions#create"
