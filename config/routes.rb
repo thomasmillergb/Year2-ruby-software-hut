@@ -3,8 +3,8 @@ HutSample::Application.routes.draw do
  
   resources :users
 
-  resources :grants
-  root to: "grants#index"
+
+  root to: "mainPage#index"
 
   #Call back route
   get "/auth/:provider/callback" => "sessions#create"
