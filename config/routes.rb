@@ -1,6 +1,12 @@
 HutSample::Application.routes.draw do
 
  
+  resources :awards
+
+  resources :students
+
+  resources :funders
+
   resources :types
 
   resources :users
