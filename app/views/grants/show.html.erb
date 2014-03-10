@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @grant.name %>
+</p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @grant.start %>
+</p>
+
+<p>
+  <strong>Deadline:</strong>
+  <%= @grant.deadline %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @grant.status %>
+</p>
+
+<p>
+  <strong>Funder:</strong>
+  <%= @grant.funder %>
+</p>
+
+<p>
+  <strong>Awarded:</strong>
+  <%= @grant.awarded %>
+</p>
+
+<%= link_to 'Edit', edit_grant_path(@grant) %> |
+<%= link_to 'Back', grants_path %>

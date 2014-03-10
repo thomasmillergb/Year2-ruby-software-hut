@@ -1,0 +1,21 @@
+<%= form_for(@type_of_funder) do |f| %>
+  <% if @type_of_funder.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@type_of_funder.errors.count, "error") %> prohibited this type_of_funder from being saved:</h2>
+
+      <ul>
+      <% @type_of_funder.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.text_field :type %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

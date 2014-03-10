@@ -1,0 +1,25 @@
+<%= form_for(@grant_allocation) do |f| %>
+  <% if @grant_allocation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@grant_allocation.errors.count, "error") %> prohibited this grant_allocation from being saved:</h2>
+
+      <ul>
+      <% @grant_allocation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :grant_id %><br>
+    <%= f.text_field :grant_id %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

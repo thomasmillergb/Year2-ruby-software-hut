@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Grant:</strong>
+  <%= @grant_allocation.grant %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @grant_allocation.user %>
+</p>
+
+<%= link_to 'Edit', edit_grant_allocation_path(@grant_allocation) %> |
+<%= link_to 'Back', grant_allocations_path %>

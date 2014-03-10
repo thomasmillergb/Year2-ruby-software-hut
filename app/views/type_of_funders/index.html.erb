@@ -1,0 +1,27 @@
+<h1>Listing type_of_funders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @type_of_funders.each do |type_of_funder| %>
+      <tr>
+        <td><%= type_of_funder.type %></td>
+        <td><%= link_to 'Show', type_of_funder %></td>
+        <td><%= link_to 'Edit', edit_type_of_funder_path(type_of_funder) %></td>
+        <td><%= link_to 'Destroy', type_of_funder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Type of funder', new_type_of_funder_path %>
