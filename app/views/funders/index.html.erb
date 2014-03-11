@@ -17,7 +17,7 @@
     <% @funders.each do |funder| %>
       <tr>
         <td><%= funder.name %></td>
-        <td><%= funder.types.name %></td>
+        <td><%= funder.type.name %></td>
         <td><%= funder.phone %></td>
         <td><%= funder.email %></td>
         <td><%= link_to 'Show', funder %></td>

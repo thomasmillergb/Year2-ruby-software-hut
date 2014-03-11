@@ -13,12 +13,17 @@ class FundersController < ApplicationController
   # GET /funders/new
   def new
     @funder = Funder.new
-    @funder = Funder.find(params[:id])
+   # @funder = Funder.find(params[:id])
+@options = Type.find(:all, 
+   :order => "name").
+   collect do |s|
+      [s.name, s.id]
+   end
   end
 
   # GET /funders/1/edit
   def edit
-   @funder = Funder.new  
+   @funder = Funnder.new  
    @options = Type.find(:all, :order => "name").
    collect do |s|
 	[s.name,s.id]
