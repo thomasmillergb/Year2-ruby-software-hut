@@ -17,7 +17,9 @@
   </div>
   <div class="field">
     Type Name<br>
-    <%= f.select :type_id, @options %>
+    <%= f.select :type_id, @options%>
+    <%= link_to 'New Type', new_type_path %>
+
   </div>
   <div class="field">
     <%= f.label :phone %><br>
