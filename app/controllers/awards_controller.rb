@@ -14,7 +14,11 @@ class AwardsController < ApplicationController
   def new
   @award = Award.new
  # @award = Award.find(params[:id])
-
+  @options = Student.find(:all, 
+   :order => "first_name").
+   collect do |s|
+      [s.first_name, s.id]
+   end
   end
 
   # GET /awards/1/edit
