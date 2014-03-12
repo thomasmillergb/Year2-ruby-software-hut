@@ -1,4 +1,5 @@
 class GrantAllocation < ActiveRecord::Base
-  belongs_to :grant
-  belongs_to :user
+ belongs_to :user
+ belongs_to :grant
+
 end

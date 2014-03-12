@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :grant_allocation do
-    grant nil
-    user nil
+    user_id 1
+    grant_id 1
   end
 end

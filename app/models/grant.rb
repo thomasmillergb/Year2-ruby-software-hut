@@ -1,4 +1,6 @@
 class Grant < ActiveRecord::Base
-  belongs_to :funder
-  belongs_to :awarded
+
+  has_many :funders
+  has_many :deliverables
+  has_many :grant_allocation
 end

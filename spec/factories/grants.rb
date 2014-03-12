@@ -3,10 +3,10 @@
 FactoryGirl.define do
   factory :grant do
     name "MyString"
-    start "2014-03-10"
-    deadline "2014-03-10"
+    start "2014-03-11"
+    deadline "2014-03-11"
     status 1
-    funder nil
-    awarded nil
+    funder_id 1
+    user_id 1
   end
 end
