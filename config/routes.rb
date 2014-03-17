@@ -1,6 +1,8 @@
 HutSample::Application.routes.draw do
 
  
+  resources :statuses
+
   resources :grant_allocations
 
   resources :grants

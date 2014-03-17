@@ -18,7 +18,11 @@ class GrantsController < ApplicationController
    collect do |s|
       [s.name, s.id]
    end
-
+   @status_options = Status.find(:all).
+  collect do |s|
+     [s.name, s.id]
+  end
+   
   end
 
   # GET /grants/1/edit
@@ -36,7 +40,7 @@ class GrantsController < ApplicationController
   # POST /grants
   def create
     @grant = Grant.new(grant_params)
-
+    @grant.status = 0
     if @grant.save
       redirect_to @grant, notice: 'Grant was successfully created.'
     else
@@ -67,6 +71,6 @@ class GrantsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def grant_params
-      params.require(:grant).permit(:name, :start, :deadline, :status, :funder_id, :user_id)
-    end
+      params.require(:grant).permit(:name, :start, :deadline, :status, :funder_id, :code, :awarded_to)
+  end
 end
