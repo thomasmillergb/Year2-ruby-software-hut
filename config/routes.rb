@@ -1,6 +1,8 @@
 HutSample::Application.routes.draw do
 
  
+ 
+
   resources :statuses
 
   resources :grant_allocations
@@ -20,11 +22,21 @@ HutSample::Application.routes.draw do
   resources :users
 
 
-  root to: "users#index"
 
-  #Call back route
+
+  #Call back route for google API
   get "/auth/:provider/callback" => "sessions#create"
 
+  root :to => 'events#index'  
+  resources :events do
+    collection do
+      get :get_events
+    end
+    member do
+      post :move
+      post :resize
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

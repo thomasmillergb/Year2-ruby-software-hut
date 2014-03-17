@@ -83,6 +83,8 @@ GEM
       railties (>= 3.0.0)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
+    fullcalendar_engine (1.0.4)
+      rails (>= 4.0.0)
     google-api-client (0.7.1)
       addressable (>= 2.3.2)
       autoparse (>= 0.3.3)
@@ -223,6 +225,7 @@ DEPENDENCIES
   database_cleaner
   debugger
   factory_girl_rails
+  fullcalendar_engine (~> 1.0.4)
   google-api-client
   jquery-rails
   nifty-generators

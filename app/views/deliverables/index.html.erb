@@ -1,0 +1,37 @@
+<h1>Listing deliverables</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Grants</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Start</th>
+      <th>Deadline</th>
+      <th>Status</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @deliverables.each do |deliverable| %>
+      <tr>
+        <td><%= deliverable.grants_id %></td>
+        <td><%= deliverable.name %></td>
+        <td><%= deliverable.description %></td>
+        <td><%= deliverable.start %></td>
+        <td><%= deliverable.deadline %></td>
+        <td><%= deliverable.status %></td>
+        <td><%= link_to 'Show', deliverable %></td>
+        <td><%= link_to 'Edit', edit_deliverable_path(deliverable) %></td>
+        <td><%= link_to 'Destroy', deliverable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Deliverable', new_deliverable_path %>
