@@ -3,6 +3,10 @@ HutSample::Application.routes.draw do
  
  
 
+  resources :grantsubs
+
+  resources :studentships
+
   resources :statuses
 
   resources :grant_allocations

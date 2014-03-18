@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140317192956) do
+ActiveRecord::Schema.define(version: 20140318141915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,14 @@ ActiveRecord::Schema.define(version: 20140317192956) do
     t.datetime "updated_at"
     t.string   "code"
     t.string   "awarded_to"
+    t.date     "finalreport"
+    t.integer  "grantsub_id"
+  end
+
+  create_table "grantsubs", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "sessions", force: true do |t|
@@ -102,6 +110,27 @@ ActiveRecord::Schema.define(version: 20140317192956) do
     t.string   "last_name"
     t.date     "birth_date"
     t.float    "gpa"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "studentships", force: true do |t|
+    t.integer  "student_subcat_id"
+    t.string   "code"
+    t.date     "startdate"
+    t.string   "enddate"
+    t.boolean  "fire"
+    t.boolean  "screenttest"
+    t.boolean  "training"
+    t.boolean  "firestatus"
+    t.boolean  "screenstatus"
+    t.boolean  "trainstatus"
+    t.boolean  "m12"
+    t.date     "m12date"
+    t.boolean  "m24"
+    t.date     "m24date"
+    t.date     "m36"
+    t.boolean  "complete"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

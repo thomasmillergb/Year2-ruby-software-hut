@@ -14,10 +14,16 @@
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
+  
+  </div>
+  <div class="field">
+    sub-cats<br>
+    <%= f.select :grantsub_id, @options_sub%>
+    <%= link_to 'New usb', new_grantsub_path %>
   </div>
   <div class="field">
     <%= f.label :start %><br>
-    <%= f.date_select :start %>
+    <%= f.date_field :start %>
   </div>
   <div class="field">
     <%= f.label :deadline %><br>
@@ -37,7 +43,19 @@
     <%= f.label :awarded_to %><br>
     <%= f.text_field :awarded_to %>
   </div>
+
+<input type="checkbox" name="c1" onclick="showMe('report')">Set Final Report Date
+<script src="assets/javascripts/forms.js"></script>
+
+  <div class="field" id = 'report'>
+    <%= f.label :finalreport %><br>
+    <%= f.date_select :finalreport %>
+  </div>
+
+
+
+  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Create Grant" %>
   </div>
 <% end %>

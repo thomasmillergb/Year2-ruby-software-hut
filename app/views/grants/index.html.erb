@@ -10,7 +10,7 @@
       <th>Funder</th>
       <th>Awarded To</th>
       <th>Grant Code</th>
-      <th></th>
+      <th>Final Report</th>
       <th></th>
     </tr>
   </thead>
@@ -25,6 +25,7 @@
         <td><%= grant.funder_id %></td>
         <td><%= grant.code %></td>        
         <td><%= grant.awarded_to %></td>
+	<td><%= grant.finalreport %></td>
         <td><%= link_to 'Show', grant %></td>
         <td><%= link_to 'Edit', edit_grant_path(grant) %></td>
         <td><%= link_to 'Destroy', grant, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -13,15 +13,27 @@ class GrantsController < ApplicationController
   # GET /grants/new
   def new
     @grant = Grant.new
+    
+    @grant.finalreport = Date.today + 90
+    @grant.status = 0
+    @grant.save
+    
+    #list of funders
     @options = Funder.find(:all,
      :order => "name").
    collect do |s|
       [s.name, s.id]
    end
-   @status_options = Status.find(:all).
-  collect do |s|
-     [s.name, s.id]
-  end
+   #lits of sub catogries
+    @options_sub = Grantsub.find(:all,
+     :order => "name").
+   collect do |s|
+      [s.name, s.id]
+   end
+#   @status_options = Status.find(:all).
+#  collect do |s|
+#     [s.name, s.id]
+#  end
    
   end
 
@@ -71,6 +83,6 @@ class GrantsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def grant_params
-      params.require(:grant).permit(:name, :start, :deadline, :status, :funder_id, :code, :awarded_to)
+      params.require(:grant).permit(:name, :start, :deadline, :status, :funder_id, :code, :awarded_to,:finalreport, :grantsub_id)
   end
 end
