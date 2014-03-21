@@ -12,9 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :student_subcat_id %><br>
-    <%= f.number_field :student_subcat_id %>
-  </div>
+    Sub cat
+    <%= f.select :student_subcat_id, @options%>
+    <%= link_to 'New Type', new_ships_sub_path %>
+  
+</div>
   <div class="field">
     <%= f.label :code %><br>
     <%= f.text_field :code %>

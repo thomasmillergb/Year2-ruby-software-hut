@@ -16,6 +16,19 @@ class StudentshipsController < ApplicationController
      @studentship.fdate = Date.today + 30
      @studentship.sdate = Date.today + 30
      @studentship.tdate = Date.today + 30
+#@options = studentsubcat.find(:all,
+#  :order => "name").
+#   collect do |s|
+#      [s.name, s.id]
+#   end
+
+
+     @options = Shipssub.find(:all,
+   :order => "name").
+   collect do |s|
+      [s.name, s.id]
+   end
+
   end
 
   # GET: /studentships/1/edit

@@ -3,6 +3,10 @@ HutSample::Application.routes.draw do
  
  
 
+  resources :student_subcats
+
+  resources :shipssubs
+
   resources :ships_subs
 
   resources :grantsubs
