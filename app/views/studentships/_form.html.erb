@@ -1,0 +1,109 @@
+<%= form_for(@studentship) do |f| %>
+  <% if @studentship.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@studentship.errors.count, "error") %> prohibited this studentship from being saved:</h2>
+
+      <ul>
+      <% @studentship.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :student_subcat_id %><br>
+    <%= f.number_field :student_subcat_id %>
+  </div>
+  <div class="field">
+    <%= f.label :code %><br>
+    <%= f.text_field :code %>
+  </div>
+  <div class="field">
+    <%= f.label :startdate %><br>
+    <%= f.date_select :startdate %>
+  </div>
+  <div class="field">
+    <%= f.label :enddate %><br>
+    <%= f.date_field :enddate %>
+  </div>
+  <div class="field">
+    <%= f.label :fire %><br>
+    <%= f.check_box :fire %>
+
+  </div>
+
+  <div class="field"  id = 'report'>
+    <%= f.label :fdate %><br>
+    <%= f.date_select :fdate %>
+   
+  </div>
+  <div class="field">
+    <%= f.label :screenttest %><br>
+    <%= f.check_box :screenttest %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sdate %><br>
+    <%= f.date_select :sdate %>
+  </div>
+  <div class="field">
+    <%= f.label :training %><br>
+    <%= f.check_box :training %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tdate %><br>
+    <%= f.date_select :tdate %>
+  </div>
+<% if false %>
+ Just incase i need it
+  <div class="field">
+    <%= f.label :firestatus %><br>
+    <%= f.check_box :firestatus %>
+  </div>
+  <div class="field">
+    <%= f.label :screenstatus %><br>
+    <%= f.check_box :screenstatus %>
+  </div>
+  <div class="field">
+    <%= f.label :trainstatus %><br>
+    <%= f.check_box :trainstatus %>
+  </div>
+<%end%>
+  <div class="field">
+    <%= f.label :m12 %><br>
+    <%= f.check_box :m12 %>
+  </div>
+  <div class="field">
+    <%= f.label :m12date %><br>
+    <%= f.date_select :m12date %>
+  </div>
+  <div class="field">
+    <%= f.label :m24 %><br>
+    <%= f.check_box :m24 %>
+  </div>
+  <div class="field">
+    <%= f.label :m24date %><br>
+    <%= f.date_select :m24date %>
+  </div>
+  <div class="field">
+    <%= f.label :m36 %><br>
+    <%= f.check_box :m36 %>
+  </div>
+  <div class="field">
+    <%= f.label :m36date %><br>
+    <%= f.date_select :m36date %>
+  </div>
+  <div class="field">
+    <%= f.label :complete %><br>
+    <%= f.check_box :complete %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<script src="assets/javascripts/forms.js"></script>
+
+
+<% end %>

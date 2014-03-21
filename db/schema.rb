@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140318141915) do
+ActiveRecord::Schema.define(version: 20140321201352) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -118,7 +118,6 @@ ActiveRecord::Schema.define(version: 20140318141915) do
     t.integer  "student_subcat_id"
     t.string   "code"
     t.date     "startdate"
-    t.string   "enddate"
     t.boolean  "fire"
     t.boolean  "screenttest"
     t.boolean  "training"
@@ -129,10 +128,15 @@ ActiveRecord::Schema.define(version: 20140318141915) do
     t.date     "m12date"
     t.boolean  "m24"
     t.date     "m24date"
-    t.date     "m36"
     t.boolean  "complete"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "fdate"
+    t.date     "sdate"
+    t.boolean  "m36"
+    t.date     "m36date"
+    t.date     "enddate"
+    t.date     "tdate"
   end
 
   create_table "type_of_funders", force: true do |t|
