@@ -2,6 +2,8 @@ HutSample::Application.routes.draw do
 
  
   resources :tasks 
+    
+
 
   resources :student_subcats
 
@@ -31,7 +33,9 @@ HutSample::Application.routes.draw do
 
   resources :users
 
+  get '/login' => 'users#login'  
 
+  get 'tasks' => 'users#login'  
 
 
   #Call back route for google API
