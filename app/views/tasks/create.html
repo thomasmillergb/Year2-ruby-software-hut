@@ -1,17 +1,6 @@
-function showMe (box) {
-
-    var chboxs = document.getElementsByName("c1");
-    var vis = "none";
-    for(var i=0;i<chboxs.length;i++) {
-        if(chboxs[i].checked){
-         vis = "block";
-            break;
-        }
-    }
-    document.getElementById(box).style.display = vis;
-
-
-}
+<html>
+<head>
+<script type="text/javascript">
 function clearMeDate() {
 	if(document.getElementById("task_date").value == "dd/mm/yyyy") {
 		document.getElementById("task_date").value = "";
@@ -66,3 +55,42 @@ function addRowAssignments() {
 	row_counterB = row_counterB + 1;
 	
 }
+
+</script>
+<link rel="stylesheet" type="text/css" href="style/style_create_task.css" />
+</head>
+<body>
+<div id="container">
+<div id="header">
+Create Task &nbsp;&nbsp;&nbsp; <input type="button" value="Import Task" />
+</div>
+<div id="content">
+<form action="#" method="post">
+<div id="left_panel">
+<table>
+<tr>
+<td>Task Name:</td><td><input type="text" id="task_name" name="task_name" /></td>
+</tr>
+<tr>
+<td>Deadline:</td><td><input type="text" id="task_date" name="task_name" value="dd/mm/yyyy" onFocus="clearMeDate();" onBlur="populateMeDate()" /></td>
+</tr>
+<tr><td><p class="bld">Milestones:</p></td><td></td></tr>
+</table>
+<table id="deadlines">
+</table>
+<a href="#" onClick="addRowDeadline()">+ Add Deadline</a>
+</div>
+<div id="right_panel">
+<p class="bld">Assign Task:</p>
+<table id="assignments">
+</table>
+<a href="#" onClick="addRowAssignments()">+ Assign User/Group</a>
+<br />
+<br />
+<input type="submit" value= "Create Task" />
+</div>
+</div>
+</form>
+</div>
+</body>
+</html>
