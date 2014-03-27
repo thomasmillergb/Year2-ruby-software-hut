@@ -4,6 +4,8 @@ class TasksController < ApplicationController
   # GET /tasks
   def index
     @tasks = Task.all
+    @project_comments = ProjectComment.all
+    @users = User.all
   end
 
   # GET /tasks/1

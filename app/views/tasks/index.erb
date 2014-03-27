@@ -27,7 +27,7 @@
         <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-	<%= render 'showcomments' %>
+	
 
   </tbody>
 </table>
@@ -35,3 +35,5 @@
 <br>
 
 <%= link_to 'New Task', new_task_path %>
+
+	<%= render 'showcomments' %>

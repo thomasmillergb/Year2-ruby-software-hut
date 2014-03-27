@@ -1,30 +1,30 @@
 <h1>Comments</h1>
+<div class = "postblock"
+<% @project_comments.each do |project_comment| %>
+    <div class= "post">
+      <div class="post-header">
+          
+        <span class="name" title="Title of the post"><%=project_comment.name%>              
+      </div>
+      <div class="postdate">
+         <span class="date" title="Date posted"> Posted:<%= project_comment.created_at %>
+      </div>
+      <div class="float-right">
+        <span class="Name" title="Date this contribution was posted">Name :<%= @users.find(project_comment.user_id).name%>
+      </div>
+            
+      
+      <div class="post-message">
+        <span class="post" title="Post"><%= project_comment.comment %>
+      </div>
+    </div>
+    <hr class="subtle-divider">
+ 
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Comment</th>
-      <th>User</th>
+</div>
 
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @project_comments.each do |project_comment| %>
-      <span class="time" title="Date this contribution was posted">
-      <span class="name" title="Title of the post"> <td><%= project_comment.name %></td>
-	  <%= user.project_comment.user_id.name
-      <%= project_comment.comment %></td>
-      <span class="user" title="Posted by user"><td><%= project_comment.user_id %></td>
-         </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
 
 <%= link_to 'New Project comment', new_project_comment_path %>

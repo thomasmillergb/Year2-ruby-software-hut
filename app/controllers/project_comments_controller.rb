@@ -22,7 +22,7 @@ class ProjectCommentsController < ApplicationController
   # POST /project_comments
   def create
     @project_comment = ProjectComment.new(project_comment_params)
-
+    @project_comment.created_at = DateTime.now
     if @project_comment.save
       redirect_to @project_comment, notice: 'Project comment was successfully created.'
     else
