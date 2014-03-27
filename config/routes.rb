@@ -27,13 +27,7 @@ HutSample::Application.routes.draw do
 
   resources :statuses
 
-  resources :grant_allocations
-
   resources :grants
-
-  resources :deliverables
-
-  resources :awards
 
   resources :students
 
