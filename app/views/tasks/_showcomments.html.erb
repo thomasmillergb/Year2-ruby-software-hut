@@ -1,0 +1,30 @@
+<h1>Comments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Comment</th>
+      <th>User</th>
+
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @project_comments.each do |project_comment| %>
+      <span class="time" title="Date this contribution was posted">
+      <span class="name" title="Title of the post"> <td><%= project_comment.name %></td>
+	  <%= user.project_comment.user_id.name
+      <%= project_comment.comment %></td>
+      <span class="user" title="Posted by user"><td><%= project_comment.user_id %></td>
+         </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Project comment', new_project_comment_path %>
