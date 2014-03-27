@@ -1,6 +1,14 @@
 HutSample::Application.routes.draw do
 
  
+  resources :project_allocations
+
+  resources :tasks
+
+  resources :task_comments
+
+  resources :project_comments
+
   resources :tasks 
     
 
