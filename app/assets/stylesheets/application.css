@@ -12,3 +12,9 @@
  *= require_tree .
   *= require fullcalendar_engine/application
 */
+
+#postblock {
+
+font-weight: bold;
+
+}
