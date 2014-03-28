@@ -1,6 +1,8 @@
 HutSample::Application.routes.draw do
 
  
+  resources :add_users
+
   resources :projects
 
   resources :project_allocations
