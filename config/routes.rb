@@ -1,6 +1,8 @@
 HutSample::Application.routes.draw do
 
  
+  resources :users
+
   resources :add_users
 
   resources :projects
@@ -36,8 +38,6 @@ HutSample::Application.routes.draw do
   resources :funders
 
   resources :types
-
-  resources :users
 
   get '/login' => 'users#login'  
 

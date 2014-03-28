@@ -2,11 +2,5 @@
 
 FactoryGirl.define do
   factory :user do
-    username "MyString"
-    name "MyString"
-    surname "MyString"
-    email "MyString"
-    password "MyString"
-    userLevel 1
   end
 end
