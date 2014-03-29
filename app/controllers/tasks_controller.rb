@@ -6,6 +6,7 @@ class TasksController < ApplicationController
     @tasks = Task.all
     @project_comments = ProjectComment.all
     @users = User.all
+   #@ get user seession id
   end
 
   # GET /tasks/1

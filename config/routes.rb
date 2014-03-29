@@ -1,6 +1,8 @@
 HutSample::Application.routes.draw do
 
  
+  resources :sub_tasks
+
   resources :users
 
   resources :add_users

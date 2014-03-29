@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140327152044) do
+ActiveRecord::Schema.define(version: 20140329130404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "add_users", force: true do |t|
+    t.string   "name"
+    t.string   "password"
+    t.integer  "level"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "awards", force: true do |t|
     t.string   "name"
@@ -178,6 +187,14 @@ ActiveRecord::Schema.define(version: 20140327152044) do
     t.date     "m36date"
     t.date     "enddate"
     t.date     "tdate"
+  end
+
+  create_table "sub_tasks", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.date     "enddate"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "task_comments", force: true do |t|
