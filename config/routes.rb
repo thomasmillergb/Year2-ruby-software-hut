@@ -1,6 +1,7 @@
 HutSample::Application.routes.draw do
 
  
+  get "main/index"
   get "welcome/index"
   resources :sub_tasks
 
