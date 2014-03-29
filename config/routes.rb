@@ -1,6 +1,7 @@
 HutSample::Application.routes.draw do
 
  
+  get "welcome/index"
   resources :sub_tasks
 
   resources :users
@@ -49,7 +50,7 @@ HutSample::Application.routes.draw do
   #Call back route for google API
   get "/auth/:provider/callback" => "sessions#create"
 
-  root :to => 'events#index'  
+  root "welcome#index"  
   resources :events do
     collection do
       get :get_events
