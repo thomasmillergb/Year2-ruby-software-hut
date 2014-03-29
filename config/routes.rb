@@ -44,7 +44,7 @@ HutSample::Application.routes.draw do
   resources :types
 
   get '/login' => 'users#login'  
-
+  get '/main' => 'main#index'
   get 'tasks' => 'users#login'  
 
 
