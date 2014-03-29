@@ -4,6 +4,7 @@ class SubTasksController < ApplicationController
   # GET /sub_tasks
   def index
     @sub_tasks = SubTask.all
+    @project_comments = TaskComment.all
   end
 
   # GET /sub_tasks/1
