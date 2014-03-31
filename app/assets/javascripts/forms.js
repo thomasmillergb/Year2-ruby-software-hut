@@ -65,4 +65,4 @@ function addRowAssignments() {
 	cell1.innerHTML = "<input type=\"text\" name=\"deliverable_date_"+row_counterB+"\" id=\"assignment_"+row_counterB+"\">";
 	row_counterB = row_counterB + 1;
 	
-}
+}	
