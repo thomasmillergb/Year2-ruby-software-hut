@@ -3,9 +3,9 @@ class GrantsController < ApplicationController
 
   # GET /grants
   def index
-    #params
+    
     @grants = Grant.all
-    @project_id = Post.find(params[:[:project_id])
+    @project_id = Post.find(params[:project_id])
   end
 
   # GET /grants/1

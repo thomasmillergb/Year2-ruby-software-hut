@@ -1,10 +1,6 @@
 <h1>Listing grants</h1>
 
-<% if @project_id ==16 %>
-hello
-<%else%>
-boo
-<%end%>
+
 <table>
   <thead>
     <tr>
@@ -23,6 +19,8 @@ boo
   <tbody>
     <% @grants.each do |grant| %>
       
+<% if @project_id.id ==grant.project.id %>
+
       <tr>
         <td><%= grant.name %></td>
         <td><%= grant.start %></td>

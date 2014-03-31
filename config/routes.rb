@@ -5,6 +5,7 @@ HutSample::Application.routes.draw do
   get "welcome/auth"
   get "main/index"
   get "welcome/index"
+  get "/project/:project_id/project_comments" => "project_comments#new"
   resources :sub_tasks
 
   resources :users

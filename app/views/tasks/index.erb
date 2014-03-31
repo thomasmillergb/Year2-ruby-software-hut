@@ -38,6 +38,6 @@
 
 <br>
 
-<%= link_to 'New Task', new_task_path %>
+<%= link_to 'New Task', new_task_path(:project_id => Project.find( @project_id.id)) %>
 
 	<%= render 'showcomments' %>
