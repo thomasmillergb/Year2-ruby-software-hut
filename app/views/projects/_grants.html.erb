@@ -1,4 +1,4 @@
-<h1>Grants</h1>
+
 
 <table>
   <thead>
@@ -16,8 +16,12 @@
   </thead>
 
   <tbody>
+   
+      
     <% @grants.each do |grant| %>
+      
       <tr>
+        
         <td><%= grant.name %></td>
         <td><%= grant.start %></td>
         <td><%= grant.deadline %></td>
@@ -26,11 +30,15 @@
         <td><%= grant.code %></td>        
         <td><%= grant.awarded_to %></td>
 	<td><%= grant.finalreport %></td>
-        <td><%= link_to 'Show', grant %></td>
-        <td><%= link_to 'Edit', edit_grant_path(grant) %></td>
+
+        <td><%= link_to 'List Tasks', tasks_path(Project.find_by_grant_id(grant)) %>
         <td><%= link_to 'Destroy', grant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+     
+ </tr>
+     
     <% end %>
+    
+  
   </tbody>
 </table>
 

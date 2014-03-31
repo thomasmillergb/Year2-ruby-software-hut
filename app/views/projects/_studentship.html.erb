@@ -1,4 +1,4 @@
-<h1>Studentships</h1>
+
 
 <table>
   <thead>
@@ -28,7 +28,7 @@
 
   <tbody>
     <% @studentships.each do |studentship| %>
-	   <% if studentship.user_id
+	   
       <tr>
         <td><%= studentship.student_subcat_id %></td>
         <td><%= studentship.code %></td>
@@ -48,7 +48,8 @@
         <td><%= studentship.m36date%></td>
         <td><%= studentship.complete %></td>        
         <td><%= studentship.fdate %></td>
-        <td><%= link_to 'Show', studentship %></td>
+        <td><%= link_to 'List Tasks', tasks_path(Project.find_by_grant_id(studentship)) %>
+
         <td><%= link_to 'Edit', edit_studentship_path(studentship) %></td>
         <td><%= link_to 'Destroy', studentship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

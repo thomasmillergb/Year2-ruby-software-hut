@@ -1,10 +1,16 @@
 <h1>Projects</h1>
-
-<input onclick="showMe('grants')">Hide/Show
-
-<div class = "grants" id='grants'>
+<script src="assets/javascripts/toogle.js"></script>
+ <link rel="stylesheet" type="text/css" media="all" href="assets/stylesheets/list.css">
+<div id="toggle">
+  <ul>
+<li>Grants</li>
+<div>
 <%= render 'grants' %>
 </div>
 
+<li>Studentship</li>
+<div call = "project" id='studentship'>
 <%= render 'studentship' %>
-
+</div>
+</ul>
+</div>

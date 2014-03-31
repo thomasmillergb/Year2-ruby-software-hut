@@ -4,6 +4,8 @@ class ProjectsController < ApplicationController
   # GET /projects
   def index
     @projects = Project.all
+    @grants = Grant.all
+    @studentships = Studentship.all
   end
 
   # GET /projects/1

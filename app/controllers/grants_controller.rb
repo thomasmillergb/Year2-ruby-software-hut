@@ -34,6 +34,11 @@ class GrantsController < ApplicationController
 #  collect do |s|
 #     [s.name, s.id]
 #  end
+
+   #add project_id
+   
+  
+   
    
   end
 
@@ -53,11 +58,22 @@ class GrantsController < ApplicationController
   def create
     @grant = Grant.new(grant_params)
     @grant.status = 0
+
+
+
+   #add project_id
+   @project = Project.new
+   @project.grant_id = @grant_id
+   @project.save
+
     if @grant.save
       redirect_to @grant, notice: 'Grant was successfully created.'
     else
       render action: 'new'
+   
     end
+   
+      
   end
 
   # PATCH/PUT /grants/1
