@@ -1,29 +1,10 @@
-<h1>Listing projects</h1>
+<h1>Projects</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Grant</th>
-      <th>Studentship</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<input onclick="showMe('grants')">Hide/Show
 
-  <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.grant_id %></td>
-        <td><%= project.studentship_id %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class = "grants" id='grants'>
+<%= render 'grants' %>
+</div>
 
-<br>
+<%= render 'studentship' %>
 
-<%= link_to 'New Project', new_project_path %>
