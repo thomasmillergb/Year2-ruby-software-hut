@@ -1,5 +1,4 @@
-<h1>Listing tasks</h1>
-
+<h1>Tasks</h1>
 <table>
   <thead>
     <tr>
@@ -16,7 +15,8 @@
 
   <tbody>
     <% @tasks.each do |task| %>
-    <%## if @project == task.project_id%>
+   
+    <% if @project_id.id == task.project_id%>
         
 
  <tr>
@@ -31,7 +31,7 @@
       </tr>
 
     <% end %>
-	
+    <%end%>	
 
   </tbody>
 </table>

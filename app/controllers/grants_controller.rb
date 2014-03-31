@@ -3,7 +3,9 @@ class GrantsController < ApplicationController
 
   # GET /grants
   def index
+    #params
     @grants = Grant.all
+    @project_id = Post.find(params[:[:project_id])
   end
 
   # GET /grants/1
@@ -15,9 +17,9 @@ class GrantsController < ApplicationController
     @grant = Grant.new
     
     @grant.finalreport = Date.today + 90
-    @grant.status = 0
-    @grant.save
     
+   
+   
     #list of funders
     @options = Funder.find(:all,
      :order => "name").
@@ -35,8 +37,6 @@ class GrantsController < ApplicationController
 #     [s.name, s.id]
 #  end
 
-   #add project_id
-   
   
    
    
@@ -58,16 +58,13 @@ class GrantsController < ApplicationController
   def create
     @grant = Grant.new(grant_params)
     @grant.status = 0
-
-
-
-   #add project_id
-   @project = Project.new
-   @project.grant_id = @grant_id
+    
+if @grant.save
+      
+   @project = Project.new 
+   @project.grant_id = @grant.id
    @project.save
-
-    if @grant.save
-      redirect_to @grant, notice: 'Grant was successfully created.'
+      redirect_to @grant, notice: 'P was successfully created.'
     else
       render action: 'new'
    
@@ -96,7 +93,7 @@ class GrantsController < ApplicationController
     def set_grant
       @grant = Grant.find(params[:id])
     end
-
+   
     # Only allow a trusted parameter "white list" through.
     def grant_params
       params.require(:grant).permit(:name, :start, :deadline, :status, :funder_id, :code, :awarded_to,:finalreport, :grantsub_id)

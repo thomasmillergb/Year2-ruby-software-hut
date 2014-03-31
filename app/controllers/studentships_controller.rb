@@ -82,6 +82,7 @@ class StudentshipsController < ApplicationController
      @studentship.m36date = ""  
     end 
     if @studentship.save
+      createprojectid(@studentship)
       redirect_to @studentship, notice: 'Studentship was successfully created.'
     else
      render action: 'new'
@@ -108,7 +109,12 @@ class StudentshipsController < ApplicationController
     def set_studentship
       @studentship = Studentship.find(params[:id])
     end
-
+    
+    def createprojectid(studentship)
+         @project = Project.new
+	 @project.studentship_id = studentship.id
+         @project.save
+    end 
     # Only allow a trusted parameter "white list" through.
     def studentship_params
       params.require(:studentship).permit(:student_subcat_id, :code, :startdate, :enddate, :fire, :screenttest, :training, :firestatus, :screenstatus, :trainstatus, :m12, :m12date, :m24, :m24date, :m36, :m36date, :complete, :fdate,:sdate, :tdate)

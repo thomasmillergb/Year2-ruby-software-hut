@@ -1,11 +1,12 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /tasks
   def index
     @tasks = Task.all
     @project_comments = ProjectComment.all
     @users = User.all
+    @project_id =Project.find( params[:project_id])
    #@ get user seession id
   end
 

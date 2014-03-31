@@ -31,7 +31,7 @@
         <td><%= grant.awarded_to %></td>
 	<td><%= grant.finalreport %></td>
 
-        <td><%= link_to 'List Tasks', tasks_path(Project.find_by_grant_id(grant)) %>
+        <td><%= link_to 'List Tasks', tasks_path(:project_id => Project.find_by_grant_id(grant)) %>
         <td><%= link_to 'Destroy', grant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
      
  </tr>
