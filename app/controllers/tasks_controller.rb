@@ -7,6 +7,8 @@ class TasksController < ApplicationController
     @project_comments = ProjectComment.all
     @users = User.all
     @project_id =Project.find( params[:project_id])
+    @project_comment = ProjectComment.new
+
    #@ get user seession id
   end
 

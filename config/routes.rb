@@ -21,7 +21,9 @@ HutSample::Application.routes.draw do
   resources :task_comments
 
   resources :project_comments
-
+    get ":project_id/project_comments/:id" => "project_comments#create"
+    
+    get ":project_id/project_comments/new" => "project_comments#new"
   resources :tasks 
     
 

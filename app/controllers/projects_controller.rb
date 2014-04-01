@@ -6,6 +6,8 @@ class ProjectsController < ApplicationController
     @projects = Project.all
     @grants = Grant.all
     @studentships = Studentship.all
+      @project_comments = ProjectComment.all
+
   end
 
   # GET /projects/1

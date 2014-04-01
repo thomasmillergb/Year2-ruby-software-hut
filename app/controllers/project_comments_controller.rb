@@ -13,7 +13,8 @@ class ProjectCommentsController < ApplicationController
   # GET /project_comments/new
   def new
     @project_comment = ProjectComment.new
-   # @project_id =Project.find( params[:project_id])
+#    @project_comment.project_id = @project_id.id
+   # @project_id =Projec_id])
   end
 
   # GET /project_comments/1/edit
@@ -24,9 +25,9 @@ class ProjectCommentsController < ApplicationController
   def create
      @id=  params[:project_id]
        
-    @project_comment= Project.new(project_comment_params)
+     @project_comment= ProjectComment.new(project_comment_params)
     @project_comment.created_at = DateTime.now
-     @project_comment.project_id = @id
+#    @project_comment.project_id = @id
 #    @project_id =Project.find( params[:project_id])
    # @project_comment.project_id = @project_id.id 
     if @project_comment.save
@@ -59,7 +60,7 @@ class ProjectCommentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def project_comment_params
-      params.require(:project_comment).permit(:name, :comment)
+      params.require(:project_comment).permit(:name, :comment,:project_id)
     end
 end
 

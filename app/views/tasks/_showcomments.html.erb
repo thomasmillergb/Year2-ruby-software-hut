@@ -1,5 +1,6 @@
 <h1>Comments</h1>
-<div class = "postblock"
+<div class = "postblock">
+
 <% @project_comments.each do |project_comment| %>
     <% if @project_id.id == project_comment.project_id%>
 
@@ -12,7 +13,7 @@
          <span class="date" title="Date posted"> Posted:<%= project_comment.created_at %>
       </div>
       <div class="float-right">
-        <span class="Name" title="Date this contribution was posted">Name :<%= @users.find(project_comment.user_id).name%>
+        <span class="Name" title="Posted  by"><%= @users.find(project_comment.user_id).name%>
       </div>
             
       
