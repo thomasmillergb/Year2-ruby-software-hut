@@ -56,7 +56,7 @@ HutSample::Application.routes.draw do
   #Call back route for google API
   get "/auth/:provider/callback" => "sessions#create"
 
-  root "welcome#index"  
+  root "projects#index"  
   resources :events do
     collection do
       get :get_events
