@@ -29,7 +29,7 @@ class ProjectCommentsController < ApplicationController
     @project_comment.created_at = DateTime.now
     @project_comment.user_id = 1
     if @project_comment.save
-      redirect_to tasks_path(:project_id => @project_comment.project_id ), notice: 'Project comment was successfully created.'
+      redirect_to tasks_path(:project_id => @project_comment.project_id ), notice: 'Comment was successfully posted.'
     else
       render action: 'new'
     end

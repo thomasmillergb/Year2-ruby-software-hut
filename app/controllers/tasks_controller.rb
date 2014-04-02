@@ -19,6 +19,8 @@ class TasksController < ApplicationController
   # GET /tasks/new
   def new
     @task = Task.new
+     @project_id =Project.find( params[:project_id])
+
   end
 
   # GET /tasks/1/edit
@@ -27,10 +29,10 @@ class TasksController < ApplicationController
 
   # POST /tasks
   def create
-    @task = Task.new(task_params)
 
+    @task = Task.new(task_params)
     if @task.save
-      redirect_to @task, notice: 'Task was successfully created.'
+       redirect_to tasks_path(:project_id => @task.project_id ), notice: 'Task was successfully created.'
     else
       render action: 'new'
     end
@@ -59,6 +61,6 @@ class TasksController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def task_params
-      params.require(:task).permit(:name, :description, :startdate, :enddate, :status)
+      params.require(:task).permit(:name, :description, :startdate, :enddate, :status, :project_id)
     end
 end
