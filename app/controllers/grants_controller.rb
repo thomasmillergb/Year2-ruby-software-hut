@@ -64,7 +64,7 @@ if @grant.save
    @project = Project.new 
    @project.grant_id = @grant.id
    @project.save
-      redirect_to @grant, notice: 'P was successfully created.'
+      redirect_to tasks_path(:project_id => @project.id ), notice: 'Grant has been successfully added'
     else
       render action: 'new'
    

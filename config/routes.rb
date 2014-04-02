@@ -1,11 +1,21 @@
 HutSample::Application.routes.draw do
+  
+
+######Bad URL####
+
+get '/404' => 'errors#index'
+get '/422' => 'errors#index'
+get '/500' => 'errors#index'
 
  
+  resources :errors
+
   get "settings/index"
   get "welcome/auth"
   get "main/index"
   get "welcome/index"
   get "/project/:project_id/project_comments" => "project_comments#new"
+  
   resources :sub_tasks
 
   resources :users
@@ -50,8 +60,9 @@ HutSample::Application.routes.draw do
 
   get '/login' => 'users#login'  
   get '/main' => 'main#index'
-  get 'tasks' => 'users#login'  
-
+  get 'tasks' => 'users#login' 
+#  resources :notfound 
+  get '/error' => 'notfound#error'
 
   #Call back route for google API
   get "/auth/:provider/callback" => "sessions#create"

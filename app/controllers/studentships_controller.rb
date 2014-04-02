@@ -82,8 +82,8 @@ class StudentshipsController < ApplicationController
      @studentship.m36date = ""  
     end 
     if @studentship.save
-      createprojectid(@studentship)
-      redirect_to @studentship, notice: 'Studentship was successfully created.'
+     id =  createprojectid(@studentship)
+     redirect_to tasks_path(:project_id => id ), notice: 'Studentship was successfully created.'
     else
      render action: 'new'
     end
@@ -114,6 +114,7 @@ class StudentshipsController < ApplicationController
          @project = Project.new
 	 @project.studentship_id = studentship.id
          @project.save
+         return @project.id
     end 
     # Only allow a trusted parameter "white list" through.
     def studentship_params

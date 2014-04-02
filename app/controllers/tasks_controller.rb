@@ -6,7 +6,12 @@ class TasksController < ApplicationController
     @tasks = Task.all
     @project_comments = ProjectComment.all
     @users = User.all
-    @project_id =Project.find( params[:project_id])
+    begin
+      @project_id =Project.find( params[:project_id])
+    rescue
+      redirect_to errors_path, notice: 'The project was not found.'
+    
+    end
     @project_comment = ProjectComment.new
 
    #@ get user seession id
