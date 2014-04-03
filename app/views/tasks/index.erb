@@ -29,6 +29,8 @@
         <td><%= task.startdate %></td>
         <td><%= task.enddate %></td>
         <td><%= task.status %></td>
+        <td><%= link_to 'Sub Tasks', sub_tasks_path(:id =>task.id) %>
+ </td>
         <td><%= link_to 'Show', task %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
         <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>

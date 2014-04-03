@@ -5,6 +5,11 @@ class SubTasksController < ApplicationController
   def index
     @sub_tasks = SubTask.all
     @project_comments = TaskComment.all
+#new way to do error handling      
+
+@link = Task.find_by_id(params[:id])
+
+     redirect_to(errors_path , :notice => 'Record not fund') unless @link
   end
 
   # GET /sub_tasks/1
