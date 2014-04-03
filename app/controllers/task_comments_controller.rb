@@ -21,11 +21,11 @@ class TaskCommentsController < ApplicationController
 
   # POST /task_comments
   def create
-    @project_id = Project.find(params[:project_id])
+    @project_id = Project.find(params[:id])
     @task_comment = TaskComment.new(task_comment_params)
-    @task_comment = @project_id.id
+    @task_comment = @task_id.id
     if @task_comment.save
-      redirect_to tasks_path(:project_id => @project_id.id , notice: 'Task comment was successfully created.'
+      redirect_to sub_tasks_path(:id => @task_id.id , notice: 'Sub Task comment was successfully created.'
     else
       render action: 'new'
     end
