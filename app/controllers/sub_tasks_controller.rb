@@ -12,7 +12,7 @@ class SubTasksController < ApplicationController
 
 @task_id = Task.find_by_id(params[:id])
 
-#     redirect_to(errors_path , :notice => 'Record not fund') unless @task_id
+     redirect_to(errors_path , :notice => 'Record not fund') unless @task_id
   end
 
   # GET /sub_tasks/1
