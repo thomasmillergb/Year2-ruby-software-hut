@@ -1,4 +1,4 @@
-<h1>Listing sub_tasks</h1>
+<h1>Sub Tasks</h1>
 
 <table>
   <thead>
@@ -28,7 +28,7 @@
 
 <br>
 
-<%= link_to 'New Sub task', new_sub_task_path %>
+<%= link_to 'New Sub task', new_sub_task_path(:id => @task_id.id) %>
 
 
 <%= render 'showcomments' %>

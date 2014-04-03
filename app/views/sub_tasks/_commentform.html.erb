@@ -1,29 +1,28 @@
 
-
 <%= form_for @task_comment, :url => { :controller=>"task_comments", :action => "create" ,} do |f| %>
   <% if @task_comment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@project_comment.errors.count, "error") %> prohibited this project_comment from being saved:</h2>
+      <h2><%= pluralize(@task_comments.errors.count, "error") %> prohibited this project_comment from being saved:</h2>
 
       <ul>
-      <% @project_comment.errors.full_messages.each do |msg| %>
+      <% @task_comments.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
+    <%= f.hidden_field :task_id, :value=>@task_id.id%>
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
+  <div class="field"
     <%= f.label :comment %><br>
     <%= f.text_field :comment %>
   </div>
-<%= f.hidden_field :project_id, :value =>  @task_id.id%>
+
   <div class="actions">
     <%= f.submit %>
   </div>
-
 <% end %>

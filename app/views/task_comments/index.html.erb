@@ -18,7 +18,7 @@
       <tr>
         <td><%= task_comment.name %></td>
         <td><%= task_comment.comment %></td>
-        <td><%= task_comment.user_id %></td>
+        <td><%#= task_comment.user_id %></td>
         <td><%= task_comment.task_id %></td>
         <td><%= link_to 'Show', task_comment %></td>
         <td><%= link_to 'Edit', edit_task_comment_path(task_comment) %></td>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Task comment', new_task_comment_path(:project_id => @project.id) %>
+<%= link_to 'New Task comment', new_task_comment_path(:id => params[:id]) %>
