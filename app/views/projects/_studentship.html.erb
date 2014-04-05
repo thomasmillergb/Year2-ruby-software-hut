@@ -49,11 +49,13 @@
         <td><%= studentship.complete %></td>        
         <td><%= studentship.fdate %></td>
 		<td>
-		<label>Change Status:</label> <input class="form-checkbox" id="<%=grant.id%>" type="checkbox">
-<div class="<%=grant.id%>">
+		<label>Change Status:</label> <input class="form-checkbox" id="<%=studentship.id%>" type="checkbox">
+<div class="<%=studentship.id%>">
 
 <%= form_for (Studentship.find(studentship.id))  do |f| %>
-<%= render 'status' %>
+<%=  f.select(:status , options_for_select([['Allocated',1],['Complete',2]])) %>
+    <%= f.submit %>
+
 <%end%>	
 	</td>
 		

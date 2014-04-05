@@ -6,7 +6,7 @@
       <th>Name</th>
       <th>Description</th>
       <th>Enddate</th>
-      <th></th>
+      <th>Status</th>
       <th></th>
       <th></th>
     </tr>
@@ -18,6 +18,17 @@
         <td><%= sub_task.name %></td>
         <td><%= sub_task.description %></td>
         <td><%= sub_task.enddate %></td>
+        <td><%= sub_task.status%></td>
+	<td>
+<label>Change Status:</label> <input class="form-checkbox" id="<%=sub_task.id%>" type="checkbox">
+<div class="<%=sub_task.id%>">
+
+<%= form_for (SubTask.find(sub_task.id))  do |f| %>
+
+<%=  f.select(:status , options_for_select([['Allocated',1],['Complete',2]])) %>
+    <%= f.submit %>
+<%end%>
+	</td>
         <td><%= link_to 'Show', sub_task %></td>
         <td><%= link_to 'Edit', edit_sub_task_path(sub_task) %></td>
         <td><%= link_to 'Destroy', sub_task, method: :delete, data: { confirm: 'Are you sure?' } %></td>

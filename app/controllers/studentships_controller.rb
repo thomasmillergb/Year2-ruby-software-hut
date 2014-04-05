@@ -16,12 +16,6 @@ class StudentshipsController < ApplicationController
      @studentship.fdate = Date.today + 30
      @studentship.sdate = Date.today + 30
      @studentship.tdate = Date.today + 30
-#@options = studentsubcat.find(:all,
-#  :order => "name").
-#   collect do |s|
-#      [s.name, s.id]
-#   end
-
 
      @options = Shipssub.find(:all,
    :order => "name").
@@ -39,6 +33,8 @@ class StudentshipsController < ApplicationController
 #when calander is installed remeber to add the dats the calander table
   def create
     @studentship = Studentship.new(studentship_params)
+
+     @studentship.status = 0 
 #not inrelvant any more
     if @studentship.fire== true 
      #add date to calander with the id
@@ -118,6 +114,6 @@ class StudentshipsController < ApplicationController
     end 
     # Only allow a trusted parameter "white list" through.
     def studentship_params
-      params.require(:studentship).permit(:student_subcat_id, :code, :startdate, :enddate, :fire, :screenttest, :training, :firestatus, :screenstatus, :trainstatus, :m12, :m12date, :m24, :m24date, :m36, :m36date, :complete, :fdate,:sdate, :tdate)
+      params.require(:studentship).permit(:student_subcat_id, :code, :startdate, :enddate, :fire, :screenttest, :training, :firestatus, :screenstatus, :trainstatus, :m12, :m12date, :m24, :m24date, :m36, :m36date, :complete, :fdate,:sdate, :tdate, :status)
     end
 end

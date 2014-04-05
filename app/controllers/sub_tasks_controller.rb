@@ -33,7 +33,7 @@ class SubTasksController < ApplicationController
   # POST /sub_tasks
   def create
     @sub_task = SubTask.new(sub_task_params)
-
+    @sub_task.status = 0 
     if @sub_task.save
       redirect_to sub_tasks_path(:id => @sub_task.task_id), notice: 'Sub task was successfully created.'
     else
@@ -64,6 +64,6 @@ class SubTasksController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def sub_task_params
-      params.require(:sub_task).permit(:task_id, :name, :description, :enddate)
+      params.require(:sub_task).permit(:task_id, :name, :description, :enddate,:status)
     end
 end
