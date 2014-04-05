@@ -82,6 +82,13 @@ if @grant.save
     end
   end
 
+  def updates
+    if @grant.update(grant_params)
+      redirect_to @grant, notice: 'Grant was successfully updated.'
+    else
+      render action: 'edit'
+    end
+  end
   # DELETE /grants/1
   def destroy
     @grant.destroy

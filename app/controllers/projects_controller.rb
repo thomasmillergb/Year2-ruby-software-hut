@@ -7,6 +7,8 @@ class ProjectsController < ApplicationController
     @grants = Grant.all
     @studentships = Studentship.all
       @project_comments = ProjectComment.all
+@grane = Grant.new
+ @project_comment = Project.new
 
   end
 
