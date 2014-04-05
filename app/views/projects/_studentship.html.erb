@@ -48,6 +48,15 @@
         <td><%= studentship.m36date%></td>
         <td><%= studentship.complete %></td>        
         <td><%= studentship.fdate %></td>
+		<td>
+		<label>Change Status:</label> <input class="form-checkbox" id="<%=grant.id%>" type="checkbox">
+<div class="<%=grant.id%>">
+
+<%= form_for (Studentship.find(studentship.id))  do |f| %>
+<%= render 'status' %>
+<%end%>	
+	</td>
+		
 <td><%= link_to 'List Tasks', tasks_path(:project_id => Project.find_by_studentship_id(studentship)) %>
         <td><%= link_to 'Edit', edit_studentship_path(studentship) %></td>
         <td><%= link_to 'Destroy', studentship, method: :delete, data: { confirm: 'Are you sure?' } %></td>

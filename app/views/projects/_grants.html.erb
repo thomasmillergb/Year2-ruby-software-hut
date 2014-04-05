@@ -33,28 +33,17 @@
         <td>
 
 <label>Change Status:</label> <input class="form-checkbox" id="<%=grant.id%>" type="checkbox">
-
-
 <div class="<%=grant.id%>">
-
-
-
 
 <%= form_for (Grant.find(grant.id))  do |f| %>
 
 <%=  f.select(:status , options_for_select([['Allocated',1],['Complete',2]])) %>
     <%= f.submit %>
-sdfsdf
-
 <%end%>
 
 </div>
-
-
-	
         <td><%= link_to 'List Tasks', tasks_path(:project_id => Project.find_by_grant_id(grant)) %>
         <td><%= link_to 'Destroy', grant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-     
  </tr>
      
     <% end %>
