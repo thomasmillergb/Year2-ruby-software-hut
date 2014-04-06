@@ -54,8 +54,13 @@
 
 <%= form_for (Studentship.find(studentship.id))  do |f| %>
 <%=  f.select(:status , options_for_select([['Allocated',1],['Complete',2]])) %>
-    <%= f.submit %>
 
+<td>
+<%= f.check_box :archive%>
+</td>
+<td>
+    <%= f.submit %>
+</td>
 <%end%>	
 	</td>
 		

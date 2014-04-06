@@ -5,7 +5,7 @@ class GrantsController < ApplicationController
   def index
     
     @grants = Grant.all
-    @project_id = Post.find(params[:project_id])
+#    @project_id = Post.find(params[:project_id])
   end
 
   # GET /grants/1
@@ -41,24 +41,37 @@ class GrantsController < ApplicationController
    
    
   end
-
+  
   # GET /grants/1/edit
   def edit
 
-    @grant = Grant.new
-    @options = Funder.find(:all,
-     :order => "name").
-   collect do |s|
-      [s.name, s.id]
-   end
+    
+    @options = list
  
   end
+  def edit_individual
 
+    
+   @options = list
+   @grants = Grant.find(params[:grant_ids])
+    
+  end
+
+  def update_individual
+ @grants = Grant.update(params[:grants].keys, params[:grants].values).reject { |p| p.errors.empty? }
+  if @grants.empty?
+    flash[:notice] = "Updated Successful"
+    redirect_to root_path 
+  else
+    render :action => "edit_individual"
+  end
+
+  end
   # POST /grants
   def create
     @grant = Grant.new(grant_params)
     @grant.status = 0
-    
+    @grant.archive = false
 if @grant.save
       
    @project = Project.new 
@@ -100,9 +113,18 @@ if @grant.save
     def set_grant
       @grant = Grant.find(params[:id])
     end
-   
+    def list
+
+    
+    @options = Funder.find(:all,
+     :order => "name").
+   collect do |s|
+      [s.name, s.id]
+      end
+    end 
     # Only allow a trusted parameter "white list" through.
     def grant_params
-      params.require(:grant).permit(:name, :start, :deadline, :status, :funder_id, :code, :awarded_to,:finalreport, :grantsub_id)
-  end
+      params.require(:grant).permit(:name, :start, :deadline, :status, :funder_id, :code, :awarded_to,:finalreport, :grantsub_id, :archive)
+    end
+
 end

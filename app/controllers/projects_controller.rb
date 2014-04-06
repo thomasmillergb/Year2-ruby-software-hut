@@ -15,6 +15,22 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   def show
   end
+  def edit_individual
+
+
+   @grants = Grant.find(params[:grant_ids])
+
+  end
+
+  def update_individual
+  @grants = Grant.update(params[:grants].keys, params[:grants].values).reject { |p| p.errors.empty? }
+  if @products.empty?
+    flash[:notice] = "Products updated"
+    redirect_to products_url
+  else
+    render :action => "edit_individual"
+  end
+  end
 
   # GET /projects/new
   def new

@@ -76,7 +76,8 @@ class StudentshipsController < ApplicationController
     if @studentship.m36  == true
     else 
      @studentship.m36date = ""  
-    end 
+    end
+    @studentship.archive = false 
     if @studentship.save
      id =  createprojectid(@studentship)
      redirect_to tasks_path(:project_id => id ), notice: 'Studentship was successfully created.'
@@ -114,6 +115,6 @@ class StudentshipsController < ApplicationController
     end 
     # Only allow a trusted parameter "white list" through.
     def studentship_params
-      params.require(:studentship).permit(:student_subcat_id, :code, :startdate, :enddate, :fire, :screenttest, :training, :firestatus, :screenstatus, :trainstatus, :m12, :m12date, :m24, :m24date, :m36, :m36date, :complete, :fdate,:sdate, :tdate, :status)
+      params.require(:studentship).permit(:student_subcat_id, :code, :startdate, :enddate, :fire, :screenttest, :training, :firestatus, :screenstatus, :trainstatus, :m12, :m12date, :m24, :m24date, :m36, :m36date, :complete, :fdate,:sdate, :tdate, :status, :archive)
     end
 end

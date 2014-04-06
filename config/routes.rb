@@ -22,7 +22,14 @@ get '/500' => 'errors#index'
 
   resources :add_users
 
-  resources :projects
+  resources :projects do
+
+     collection do
+          post :edit_individual 
+          put :update_individual
+     end
+  end
+
 
   resources :project_allocations
 
@@ -50,8 +57,13 @@ get '/500' => 'errors#index'
 
   resources :statuses
 
-  resources :grants
-
+  resources :grants do
+     collection do
+          post :edit_individual 
+          put :update_individual
+     end
+  end
+    
   resources :students
 
   resources :funders
@@ -78,3 +90,4 @@ get '/500' => 'errors#index'
     end
   end
 end
+

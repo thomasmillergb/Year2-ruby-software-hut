@@ -1,3 +1,4 @@
+<%=stylesheet_link_tag("hideshow") %>
 <div class = note>
 <p id="notice"><%= notice %></p>
 </div>
@@ -11,8 +12,8 @@
       <th>Startdate</th>
       <th>Enddate</th>
       <th>Status</th>
-      <th></th>
-      <th></th>
+      <th>Chnage Status</th>
+      <th>Archive?</th>
       <th></th>
     </tr>
   </thead>
@@ -30,27 +31,29 @@
         <td><%= task.enddate %></td>
         <td><%= task.status %></td>
 
+
+
 <td>
 
-<%= form_for (Task.find(task.id))  do |f| %>
-<label>Change Status:</label> <input class="form-checkbox" id="<%=task.id%>" type="checkbox">
-
+<label></label> <input class="form-checkbox" id="<%=task.id%>" type="checkbox">
 <div class="<%=task.id%>">
-
+<%= form_for (Task.find(task.id))  do |f| %>
 
 <%=  f.select(:status , options_for_select([['Allocated',1],['Complete',2]])) %>
-</div>
-
 </td>
+</div>
 <td>
-Archive? <br>
 <%= f.check_box :archive%>
 </td>
 <td>
-
 <%= f.submit %>
 </td>
 <%end%>
+
+</div>
+
+
+
         <td><%= link_to 'Sub Tasks', sub_tasks_path(:id =>task.id) %>
  </td>
         <td><%= link_to 'Show', task %></td>
@@ -59,13 +62,12 @@ Archive? <br>
       </tr>
 
     <% end %>
-    <%end%>	
-<%end%>
+   <% end %>
+  <%end %>
   </tbody>
 </table>
 
 <br>
-
 <%= link_to 'New Task', new_task_path(:project_id => Project.find( @project_id.id)) %>
 
 	<%= render 'showcomments' %>
