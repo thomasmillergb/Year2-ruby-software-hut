@@ -21,7 +21,7 @@
     <% @tasks.each do |task| %>
    
     <% if @project_id.id == task.project_id%>
-        
+       <%if task.archive == false%> 
 
  <tr>
         <td><%= task.name %></td>
@@ -31,15 +31,26 @@
         <td><%= task.status %></td>
 
 <td>
-<label>Change Status:</label> <input class="form-checkbox" id="<%=task.id%>" type="checkbox">
-<div class="<%=task.id%>">
 
 <%= form_for (Task.find(task.id))  do |f| %>
+<label>Change Status:</label> <input class="form-checkbox" id="<%=task.id%>" type="checkbox">
+
+<div class="<%=task.id%>">
+
 
 <%=  f.select(:status , options_for_select([['Allocated',1],['Complete',2]])) %>
-    <%= f.submit %>
-<%end%>
+</div>
+
 </td>
+<td>
+Archive? <br>
+<%= f.check_box :archive%>
+</td>
+<td>
+
+<%= f.submit %>
+</td>
+<%end%>
         <td><%= link_to 'Sub Tasks', sub_tasks_path(:id =>task.id) %>
  </td>
         <td><%= link_to 'Show', task %></td>
@@ -49,7 +60,7 @@
 
     <% end %>
     <%end%>	
-
+<%end%>
   </tbody>
 </table>
 

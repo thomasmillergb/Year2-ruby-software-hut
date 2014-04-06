@@ -36,6 +36,8 @@ class TasksController < ApplicationController
   def create
 
     @task = Task.new(task_params)
+    @task.archive = false
+    @task.status = 0
     if @task.save
        redirect_to tasks_path(:project_id => @task.project_id ), notice: 'Task was successfully created.'
     else
@@ -46,7 +48,7 @@ class TasksController < ApplicationController
   # PATCH/PUT /tasks/1
   def update
     if @task.update(task_params)
-      redirect_to @task, notice: 'Task was successfully updated.'
+      redirect_to tasks_path(:project_id =>@task.project_id), notice: 'Task was successfully updated.'
     else
       render action: 'edit'
     end
@@ -66,6 +68,6 @@ class TasksController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def task_params
-      params.require(:task).permit(:name, :description, :startdate, :enddate, :status, :project_id)
+      params.require(:task).permit(:name, :description, :startdate, :enddate, :status, :project_id, :archive)
     end
 end
