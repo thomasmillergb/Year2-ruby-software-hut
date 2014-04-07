@@ -60,13 +60,30 @@ class GrantsController < ApplicationController
   def update_individual
  @grants = Grant.update(params[:grants].keys, params[:grants].values).reject { |p| p.errors.empty? }
   if @grants.empty?
-    flash[:notice] = "Updated Successful"
-    redirect_to root_path 
+    redirect_to root_path, notice: 'Updated Successful'
   else
     render :action => "edit_individual"
   end
 
   end
+ def update_multiple
+  
+ @grants = Grant.find(params[:grant_ids])
+
+ for grant in @grants  
+ if  grant.update(grant_params)
+ else
+
+    redirect_to root_path, notice: 'Updated Successful'
+
+
+
+ end
+  end
+
+    redirect_to root_path, notice: 'Updated Successful'
+end
+
   # POST /grants
   def create
     @grant = Grant.new(grant_params)

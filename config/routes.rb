@@ -27,6 +27,8 @@ get '/500' => 'errors#index'
      collection do
           post :edit_individual 
           put :update_individual
+          post :edit_multiple
+          put :update_multiple
      end
   end
 
@@ -61,6 +63,8 @@ get '/500' => 'errors#index'
      collection do
           post :edit_individual 
           put :update_individual
+
+          put :update_multiple
      end
   end
     

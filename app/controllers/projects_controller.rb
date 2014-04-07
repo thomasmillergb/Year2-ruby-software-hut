@@ -15,13 +15,23 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   def show
   end
-  def edit_individual
+  def edit_multiple
+   
+   if params[:multiple]
+   
+     @grants = Grant.find(params[:grant_ids])
+   @options_sub = list
+   @options = oplist
+   render action:  'edit_multiple'
+else
 
-
-   @grants = Grant.find(params[:grant_ids])
-
+   
+     @grants = Grant.find(params[:grant_ids])
+   @options_sub = list
+   @options = oplist
+   render action:  'edit_individual'
+end
   end
-
   def update_individual
   @grants = Grant.update(params[:grants].keys, params[:grants].values).reject { |p| p.errors.empty? }
   if @products.empty?
@@ -31,7 +41,14 @@ class ProjectsController < ApplicationController
     render :action => "edit_individual"
   end
   end
-
+  def update_multiple
+    @grants = Grant.find(params[:grant_ids])
+    @grants.each do |grant|
+      grant.update_attributes!(params[:grant].reject { |k,v| v.blank? })
+    end
+    flash[:notice] = "Updated products!"
+    redirect_to products_path
+  end
   # GET /projects/new
   def new
     @project = Project.new
@@ -41,6 +58,8 @@ class ProjectsController < ApplicationController
   def edit
   end
 
+  def edits
+  end
   # POST /projects
   def create
     @project = Project.new(project_params)
@@ -72,7 +91,24 @@ class ProjectsController < ApplicationController
     def set_project
       @project = Project.find(params[:id])
     end
+    def list
 
+    
+     return @options_sub = Grantsub.find(:all,
+     :order => "name").
+   collect do |s|
+      [s.name, s.id]
+   end 
+   end
+   def oplist
+   return  @options = Funder.find(:all,
+     :order => "name").
+   collect do |s|
+      [s.name, s.id]
+   end
+
+   
+   end
     # Only allow a trusted parameter "white list" through.
     def project_params
       params.require(:project).permit(:grant_id, :studentship_id)

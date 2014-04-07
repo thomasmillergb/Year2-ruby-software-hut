@@ -1,6 +1,6 @@
 <link rel="stylesheet" type="text/css" media="all" href="assets/stylesheets/hideshow.css">
 
-<%= form_tag edit_individual_projects_path do |f| %>
+<%= form_tag edit_multiple_projects_path do |f| %>
 <table>
   <thead>
     <tr>
@@ -45,8 +45,8 @@
 
 <br>
 
-    <%=submit_tag "Edit Checked"%>
-
+    <%=submit_tag "Edit Checked", :name=> 'individual'%>
+    <%=submit_tag "Change Checked to", :name =>'multiple'%>
 
     <% end %>
 <%= link_to 'New Grant', new_grant_path %>
