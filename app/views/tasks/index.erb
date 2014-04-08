@@ -35,8 +35,6 @@
 
 <td>
 
-<label></label> <input class="form-checkbox" id="<%=task.id%>" type="checkbox">
-<div class="<%=task.id%>">
 <%= form_for (Task.find(task.id))  do |f| %>
 
 <%=  f.select(:status , options_for_select([['Allocated',1],['Complete',2]])) %>

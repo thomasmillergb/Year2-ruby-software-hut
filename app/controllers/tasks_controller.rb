@@ -27,7 +27,11 @@ class TasksController < ApplicationController
      @project_id =Project.find( params[:project_id])
 
   end
+  def status
+    @task = Task.find(params[:id])
+    @id = params[:id]
 
+  end
   # GET /tasks/1/edit
   def edit
   end

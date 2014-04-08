@@ -66,22 +66,20 @@ class GrantsController < ApplicationController
   end
 
   end
+ def test
+ end
  def update_multiple
   
  @grants = Grant.find(params[:grant_ids])
 
  for grant in @grants  
- if  grant.update(grant_params)
- else
-
-    redirect_to root_path, notice: 'Updated Successful'
-
-
-
+ if !grant.update(grant_params)
+    redirect_to root_path, notice: 'Updated not Successful'
  end
-  end
-
+end
+#
     redirect_to root_path, notice: 'Updated Successful'
+
 end
 
   # POST /grants

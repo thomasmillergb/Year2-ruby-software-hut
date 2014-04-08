@@ -10,8 +10,7 @@
       </ul>
     </div>
   <% end %>
-<%= f.hidden_field :task_id, :value =>  @task_id.id%>
-
+<%= f.hidden_field :task_id, :value =>  params[:task_id]%>
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>

@@ -24,9 +24,37 @@ class StudentshipsController < ApplicationController
    end
 
   end
+  def update_individual
+ @grants = Studentship.update(params[:grants].keys, params[:grants].values).reject { |p| p.errors.empty? }
+  if @grants.empty?
+    redirect_to root_path, notice: 'Updated Successful'
+  else
+    render :action => "edit_individual"
+  end
+
+  end
+ def update_multiple
+
+ @grants = Studentship.find(params[:grant_ids])
+
+ for grant in @grants
+ if !grant.update(grant_params)
+    redirect_to root_path, notice: 'Updated not Successful'
+ end
+end
+#
+    redirect_to root_path, notice: 'Updated Successful'
+
+end
 
   # GET: /studentships/1/edit
   def edit
+     @options = Shipssub.find(:all,
+   :order => "name").
+   collect do |s|
+      [s.name, s.id]
+   end
+
   end
 
   # POST /studentships
@@ -118,3 +146,8 @@ class StudentshipsController < ApplicationController
       params.require(:studentship).permit(:student_subcat_id, :code, :startdate, :enddate, :fire, :screenttest, :training, :firestatus, :screenstatus, :trainstatus, :m12, :m12date, :m24, :m24date, :m36, :m36date, :complete, :fdate,:sdate, :tdate, :status, :archive)
     end
 end
+ def grant_params
+params.require(:grant).permit(:student_subcat_id, :code, :startdate, :enddate, :fire, :screenttest, :training, :firestatus, :screenstatus, :trainstatus, :m12, :m12date, :m24, :m24date, :m36, :m36date, :complete, :fdate,:sdate, :tdate, :status, :archive)
+
+    end
+

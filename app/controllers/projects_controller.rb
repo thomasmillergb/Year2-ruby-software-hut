@@ -15,15 +15,20 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   def show
   end
- 
   def status
-    @grant =Grant.find(params[:id])
-    @a =    params[:id]
+   
+    @grant = Grant.find(params[:id])
+    @id = params[:id]
   end
-
+#bag code cannot be bothered with ifs
+  def statuss
+   
+    @grant = Studentship.find(params[:id])
+    @id = params[:id]
+  end
   def edit_multiple
    
-   if params[:name]=='multiple'
+   if params[:multiple]
    
      @grants = Grant.find(params[:grant_ids])
    @options_sub = list
@@ -31,13 +36,36 @@ class ProjectsController < ApplicationController
    render action:  'edit_multiple'
  
 
-else
+elsif params[:individual]
 
-   
-     @grants = Grant.find(params[:grant_ids])
+@a= params[:name]   
+     @grants = Studentship.find(params[:grant_ids])
    @options_sub = list
    @options = oplist
-   render action:  'edit_individual'
+   render action: 'edit_individual'
+elsif params[:multiples]
+   
+     @grants = Studentship.find(params[:grant_ids])
+       @options = Shipssub.find(:all,
+   :order => "name").
+   collect do |s|
+      [s.name, s.id]
+   end
+
+   render action:  'edit_multiples'
+ 
+
+elsif params[:individuals]
+
+@a= params[:name]   
+     @options = Shipssub.find(:all,
+   :order => "name").
+   collect do |s|
+      [s.name, s.id]
+   end
+
+     @grants = Studentship.find(params[:grant_ids])
+   render action: 'edit_individuals'
 end
   end
   def update_individual

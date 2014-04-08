@@ -16,7 +16,19 @@ get '/500' => 'errors#index'
   get "welcome/index"
   get "/project/:project_id/project_comments" => "project_comments#new"
   
-  resources :sub_tasks
+  resources :sub_tasks do
+
+     collection do
+          post :edit_individual
+          put :update_individual
+          post :edit_multiple
+          put :update_multiple
+          post :status
+          post :statuss
+          post :edit_status
+     end
+  end
+
 
   resources :users
 
@@ -26,10 +38,18 @@ get '/500' => 'errors#index'
 
      collection do
           post :edit_individual 
+
+          post :edit_individuals
+ 
+          put :update_individuals
           put :update_individual
           post :edit_multiple
+          post :edit_multiples
+          put :update_multiples
           put :update_multiple
           post :status
+          post :statuss
+          post :edit_status
      end
   end
 
@@ -56,8 +76,18 @@ get '/500' => 'errors#index'
 
   resources :grantsubs
 
-  resources :studentships
+  resources :studentships do
 
+     collection do
+          post :edit_individual
+          put :update_individual
+          post :edit_multiple
+          put :update_multiple
+          post :status
+          post :statuss
+          post :edit_status
+     end
+  end
   resources :statuses
 
   resources :grants do
