@@ -15,14 +15,22 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   def show
   end
+ 
+  def status
+    @grant =Grant.find(params[:id])
+    @a =    params[:id]
+  end
+
   def edit_multiple
    
-   if params[:multiple]
+   if params[:name]=='multiple'
    
      @grants = Grant.find(params[:grant_ids])
    @options_sub = list
    @options = oplist
    render action:  'edit_multiple'
+ 
+
 else
 
    
@@ -65,7 +73,7 @@ end
     @project = Project.new(project_params)
 
     if @project.save
-      redirect_to @project, notice: 'Project was successfully created.'
+      redirect_to projjjj_url, notice: 'Project was successfully created.'
     else
       render action: 'new'
     end
@@ -74,7 +82,7 @@ end
   # PATCH/PUT /projects/1
   def update
     if @project.update(project_params)
-      redirect_to @project, notice: 'Project was successfully updated.'
+      redirect_to asd, notice: 'Project was successfully updated.'
     else
       render action: 'edit'
     end

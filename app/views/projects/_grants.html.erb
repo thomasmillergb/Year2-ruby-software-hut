@@ -21,6 +21,8 @@
    
       
     <% @grants.each do |grant| %>
+<%=fields_for grant do |g|%>
+
     <%if grant.archive ==false%>  
       <tr>
         <td><%= check_box_tag "grant_ids[]",grant.id%> </td>
@@ -31,12 +33,12 @@
 	<td><%= grant.funder_id %></td>
         <td><%= grant.code %></td>        
         <td><%= grant.awarded_to %></td>
-	<td><%= grant.finalreport %></td>
-
-        <td><%= link_to 'List Tasks', tasks_path(:project_id => Project.find_by_grant_id(grant)) %>
+	<td><%= grant.finalreport %></td>	
+        <td><%= link_to 'Change Status', status_projects_path(:id => grant.id),:method => :post%></td>
+        <td><%= link_to 'List Tasks', tasks_path(:project_id => Project.find_by_grant_id(grant)) %> </td>
         <td><%= link_to 'Destroy', grant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-     
+    <%end%> 
        <%end%>
     <%end%>
   

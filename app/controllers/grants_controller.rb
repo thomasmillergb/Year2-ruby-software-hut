@@ -106,8 +106,9 @@ if @grant.save
   # PATCH/PUT /grants/1
   def update
     if @grant.update(grant_params)
-      redirect_to @grant, notice: 'Grant was successfully updated.'
-    else
+  redirect_to root_path, notice: 'Updated Successful'
+   
+ else
       render action: 'edit'
     end
   end

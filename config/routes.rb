@@ -29,6 +29,7 @@ get '/500' => 'errors#index'
           put :update_individual
           post :edit_multiple
           put :update_multiple
+          post :status
      end
   end
 
