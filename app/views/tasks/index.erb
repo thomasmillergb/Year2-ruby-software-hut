@@ -2,11 +2,13 @@
 <div class = note>
 <p id="notice"><%= notice %></p>
 </div>
+<%= form_tag edit_bulk_tasks_path do |f| %>
 
 <h1>Tasks</h1>
 <table>
   <thead>
     <tr>
+      <th></th>
       <th>Name</th>
       <th>Description</th>
       <th>Startdate</th>
@@ -25,32 +27,12 @@
        <%if task.archive == false%> 
 
  <tr>
+        <td><%= check_box_tag "task_ids[]",task.id%> </td>
         <td><%= task.name %></td>
         <td><%= task.description %></td>
         <td><%= task.startdate %></td>
         <td><%= task.enddate %></td>
         <td><%= task.status %></td>
-
-
-
-<td>
-
-<%= form_for (Task.find(task.id))  do |f| %>
-
-<%=  f.select(:status , options_for_select([['Allocated',1],['Complete',2]])) %>
-</td>
-</div>
-<td>
-<%= f.check_box :archive%>
-</td>
-<td>
-<%= f.submit %>
-</td>
-<%end%>
-
-</div>
-
-
 
         <td><%= link_to 'Sub Tasks', sub_tasks_path(:id =>task.id) %>
  </td>
@@ -64,10 +46,14 @@
   <%end %>
   </tbody>
 </table>
+<br>
+    <%=submit_tag "Archive", :name =>'arc'%>
+    <%=submit_tag "Change Checked Status to", :name =>'stats'%>
+    <%=select_tag(:status , options_for_select([['Allocated',1],['Complete',2]]))%>
 
+<%end%>
 <br>
 <%= link_to 'New Task', new_task_path(:project_id => Project.find( @project_id.id)) %>
-
 	<%= render 'showcomments' %>
         
         <%= render 'commentform' %>

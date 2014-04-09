@@ -20,7 +20,35 @@ class TasksController < ApplicationController
   # GET /tasks/1
   def show
   end
+  def edit_bulk
+if params[:arc]
+@tasks = Task.find(params[:task_ids])
 
+
+ for grant in @tasks
+   grant.archive = true
+   
+ if !grant.save
+    redirect_to tasks_path(:project_id => grant.project_id), notice: 'Archive not Successful'
+ end
+end
+#
+    redirect_to tasks_path(:project_id => grant.project_id),notice: 'Archive Successful'
+elsif params[:stats]
+
+@tasks = Task.find(params[:task_ids])
+
+ for grant in @tasks
+   grant.status = params[:status]
+ if !grant.save
+    redirect_to tasks_path(:project_id => grant.project_id), notice: 'Updated not Successful'
+ end
+end
+#
+    redirect_to tasks_path(:project_id => grant.project_id), notice: 'Updated Successful'
+
+  end
+end
   # GET /tasks/new
   def new
     @task = Task.new

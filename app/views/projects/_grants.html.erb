@@ -49,5 +49,9 @@
     <%=submit_tag "Edit Checked", :name=> 'individual'%>
     <%=submit_tag "Change Checked to", :name =>'multiple'%>
 
+    <%=submit_tag "Archive", :name =>'archive'%>
+
+    <%=submit_tag "Change Checked Status to", :name =>'stat'%>
+    <%=select_tag(:status , options_for_select([['Allocated',1],['Complete',2]]))%>
     <% end %>
 <%= link_to 'New Grant', new_grant_path %>

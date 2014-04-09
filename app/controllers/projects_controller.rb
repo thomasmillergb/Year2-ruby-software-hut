@@ -35,11 +35,56 @@ class ProjectsController < ApplicationController
    @options = oplist
    render action:  'edit_multiple'
  
+elsif params[:archive]
+@grants = Grant.find(params[:grant_ids])
 
+ for grant in @grants
+   grant.archive = true
+ if !grant.save
+    redirect_to root_path, notice: 'Updated not Successful'
+ end
+end
+#
+    redirect_to root_path, notice: 'Updated Successful'
+elsif params[:stat]
+
+@grants = Grant.find(params[:grant_ids])
+
+ for grant in @grants
+   grant.status = params[:status]
+ if !grant.save
+    redirect_to root_path, notice: 'Updated not Successful'
+ end
+end
+#
+    redirect_to root_path, notice: 'Updated Successful'
+
+elsif params[:arc]
+@grants = Studentship.find(params[:grant_ids])
+
+
+ for grant in @grants
+   grant.archive = true
+ if !grant.save
+    redirect_to root_path, notice: 'Archive not Successful'
+ end
+end
+#
+    redirect_to root_path, notice: 'Archive Successful'
+elsif params[:stats]
+
+@grants = Studentship.find(params[:grant_ids])
+
+ for grant in @grants
+   grant.status = params[:status]
+ if !grant.save
+    redirect_to root_path, notice: 'Updated not Successful'
+ end
+end
+#
+    redirect_to root_path, notice: 'Updated Successful'
 elsif params[:individual]
-
-@a= params[:name]   
-     @grants = Studentship.find(params[:grant_ids])
+     @grants = Grant.find(params[:grant_ids])
    @options_sub = list
    @options = oplist
    render action: 'edit_individual'
@@ -145,6 +190,8 @@ end
 
    
    end
+    
+
     # Only allow a trusted parameter "white list" through.
     def project_params
       params.require(:project).permit(:grant_id, :studentship_id)

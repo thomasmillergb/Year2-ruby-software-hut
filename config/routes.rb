@@ -56,7 +56,12 @@ get '/500' => 'errors#index'
 
   resources :project_allocations
 
-  resources :tasks
+  resources :tasks do
+
+     collection do
+          post :edit_bulk
+      end
+  end
 
   resources :task_comments
 
