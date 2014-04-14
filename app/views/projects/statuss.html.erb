@@ -1,0 +1,10 @@
+
+<%= form_for(@grant) do |f| %>
+<%=  f.select(:status , options_for_select([['Allocated',1],['Complete',2]])) %>
+<%= f.hidden_field(:id, :value => @id)%>
+ <%=f.submit "Update Status"%>
+
+<%end%>
+~
+~
+

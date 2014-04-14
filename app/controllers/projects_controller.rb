@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
       @project_comments = ProjectComment.all
 @grane = Grant.new
  @project_comment = Project.new
-
+@status = statusbox
   end
 
   # GET /projects/1
@@ -17,17 +17,21 @@ class ProjectsController < ApplicationController
   end
   def status
    
+@status = statusbox
     @grant = Grant.find(params[:id])
     @id = params[:id]
   end
 #bag code cannot be bothered with ifs
   def statuss
    
+@status = statusbox
     @grant = Studentship.find(params[:id])
     @id = params[:id]
   end
   def edit_multiple
-   
+   @cat_options = cat
+ 
+@status = statusbox
    if params[:multiple]
    
      @grants = Grant.find(params[:grant_ids])
@@ -190,7 +194,25 @@ end
 
    
    end
-    
+    def cat
+
+    options = Projectcat.find(:all,
+     :order => "name").
+   collect do |s|
+      [s.name, s.id]
+      end
+    return options
+    end
+ 
+    def statusbox
+
+    options = Status.find(:all,
+     :order => "name").
+   collect do |s|
+      [s.name, s.id]
+      end
+    return options
+    end
 
     # Only allow a trusted parameter "white list" through.
     def project_params

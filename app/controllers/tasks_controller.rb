@@ -69,7 +69,7 @@ end
 
     @task = Task.new(task_params)
     @task.archive = false
-    @task.status = 0
+    @task.status = 1 
     if @task.save
        redirect_to tasks_path(:project_id => @task.project_id ), notice: 'Task was successfully created.'
     else

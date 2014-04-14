@@ -36,7 +36,7 @@ class GrantsController < ApplicationController
 #  collect do |s|
 #     [s.name, s.id]
 #  end
-
+   @cat_options = cat
   
    
    
@@ -48,10 +48,23 @@ class GrantsController < ApplicationController
     
     @options = list
  
+   #lits of sub catogries
+    @options_sub = Grantsub.find(:all,
+     :order => "name").
+   collect do |s|
+      [s.name, s.id]
+   end
+   @cat_options = cat
   end
   def edit_individual
 
     
+   #lits of sub catogries
+    @options_sub = Grantsub.find(:all,
+     :order => "name").
+   collect do |s|
+      [s.name, s.id]
+   end
    @options = list
    @grants = Grant.find(params[:grant_ids])
     
@@ -85,7 +98,7 @@ end
   # POST /grants
   def create
     @grant = Grant.new(grant_params)
-    @grant.status = 0
+    @grant.status = 1
     @grant.archive = false
 if @grant.save
       
@@ -128,6 +141,15 @@ if @grant.save
     # Use callbacks to share common setup or constraints between actions.
     def set_grant
       @grant = Grant.find(params[:id])
+    end
+    def cat
+
+    options = Projectcat.find(:all,
+     :order => "name").
+   collect do |s|
+      [s.name, s.id]
+      end
+    return options
     end
     def list
 

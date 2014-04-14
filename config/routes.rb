@@ -1,6 +1,8 @@
 HutSample::Application.routes.draw do
   
 
+  resources :projectcats
+
 ######Bad URL####
 
 get '/404' => 'errors#index'

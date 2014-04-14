@@ -39,7 +39,7 @@
         <td><%= studentship.code %></td>
         <td><%= studentship.startdate %></td>
         <td><%= studentship.enddate %></td>
-        <td><%= studentship.status %></td>
+        <td><%= Status.find(studentship.status).name %></td>
         <td><%= studentship.fire %></td>
         <td><%= studentship.screenttest %></td>
         <td><%= studentship.training %></td>
@@ -72,7 +72,7 @@
     <%=submit_tag "Archive", :name =>'arc'%>
 
     <%=submit_tag "Change Checked Status to", :name =>'stats'%>
-    <%=select_tag(:status , options_for_select([['Allocated',1],['Complete',2]]))%>
+    <%= select_tag(:status ,options_from_collection_for_select(Status.all, :id, :name)) %>
 
     <% end %>
 

@@ -62,7 +62,7 @@ end
   def create
     @studentship = Studentship.new(studentship_params)
 
-     @studentship.status = 0 
+     @studentship.status = 1
 #not inrelvant any more
     if @studentship.fire== true 
      #add date to calander with the id

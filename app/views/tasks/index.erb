@@ -32,7 +32,7 @@
         <td><%= task.description %></td>
         <td><%= task.startdate %></td>
         <td><%= task.enddate %></td>
-        <td><%= task.status %></td>
+        <td><%= Status.find(task.status).name %></td>
 
         <td><%= link_to 'Sub Tasks', sub_tasks_path(:id =>task.id) %>
  </td>
@@ -49,7 +49,7 @@
 <br>
     <%=submit_tag "Archive", :name =>'arc'%>
     <%=submit_tag "Change Checked Status to", :name =>'stats'%>
-    <%=select_tag(:status , options_for_select([['Allocated',1],['Complete',2]]))%>
+<%= select_tag(:status ,options_from_collection_for_select(Status.all, :id, :name)) %>
 
 <%end%>
 <br>

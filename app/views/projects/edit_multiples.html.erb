@@ -1,0 +1,21 @@
+<h1>Edit Grants </h1>
+<%#= debug @grants %>
+<%= form_for :grant, :url => update_multiple_studentships_path, :html => { :method => :put } do |f| %>
+<%#= form_tag :grant, update_multiple_grants_path, :method => :put do |f|%>
+ <% for grant in @grants %>
+        <%= hidden_field_tag "grant_ids[]", grant.id %>
+
+
+
+
+   <%end%>
+
+
+ <%= render "field2", :f => f %>
+
+<p><%= submit_tag "Submit" %></p>
+<%end%>
+
+~
+~
+
