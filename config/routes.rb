@@ -1,6 +1,7 @@
 HutSample::Application.routes.draw do
   
 
+  get "login/index"
   resources :projectcats
 
 ######Bad URL####
