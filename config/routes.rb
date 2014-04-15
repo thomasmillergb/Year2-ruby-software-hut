@@ -122,7 +122,7 @@ get '/500' => 'errors#index'
   #Call back route for google API
   get "/auth/:provider/callback" => "sessions#create"
 
-  root "projects#index"  
+  root "login#index"  
   resources :events do
     collection do
       get :get_events
