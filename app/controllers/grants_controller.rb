@@ -60,6 +60,9 @@ class GrantsController < ApplicationController
     @grant.status = 0
 
 
+@calander = Calander.new()
+@calander.date = @grant.deadline
+@calander.save
 
    #add project_id
    @project = Project.new

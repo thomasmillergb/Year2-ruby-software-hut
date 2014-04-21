@@ -11,19 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140329131432) do
+ActiveRecord::Schema.define(version: 20140324144716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "add_users", force: true do |t|
-    t.string   "name"
-    t.string   "password"
-    t.integer  "level"
-    t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "awards", force: true do |t|
     t.string   "name"
@@ -103,29 +94,6 @@ ActiveRecord::Schema.define(version: 20140329131432) do
     t.datetime "updated_at"
   end
 
-  create_table "project_allocations", force: true do |t|
-    t.integer  "project_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "project_comments", force: true do |t|
-    t.string   "name"
-    t.string   "comment"
-    t.integer  "user_id"
-    t.string   "project_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "projects", force: true do |t|
-    t.integer  "grant_id"
-    t.integer  "studentship_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "sessions", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -189,33 +157,11 @@ ActiveRecord::Schema.define(version: 20140329131432) do
     t.date     "tdate"
   end
 
-  create_table "sub_tasks", force: true do |t|
-    t.string   "name"
-    t.string   "description"
-    t.date     "enddate"
+  create_table "tests", force: true do |t|
+    t.date     "dob"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "task_id"
-  end
-
-  create_table "task_comments", force: true do |t|
-    t.string   "name"
-    t.string   "comment"
-    t.integer  "user_id"
-    t.integer  "task_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "tasks", force: true do |t|
-    t.string   "name"
-    t.string   "description"
-    t.date     "startdate"
-    t.date     "enddate"
-    t.integer  "status"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "project_id"
+    t.string   "hello"
   end
 
   create_table "type_of_funders", force: true do |t|
