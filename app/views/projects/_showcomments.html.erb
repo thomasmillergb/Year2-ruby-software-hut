@@ -1,6 +1,7 @@
 <h1>Comments</h1>
 <div class = "postblock"
 <% @project_comments.each do |project_comment| %>
+  <% if @project_id.id == project_comment.project_id%>
     <div class= "post">
       <div class="post-header">
           
@@ -19,7 +20,7 @@
       </div>
     </div>
     <hr class="subtle-divider">
- 
+   <% end %>
 <% end %>
 
 </div>

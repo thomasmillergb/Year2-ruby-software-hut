@@ -1,0 +1,7 @@
+<h1>Change Status</h1>
+<%= form_for(@grant) do |f| %>
+<%=f.select(:status , @status)%>
+<%= f.hidden_field(:id, :value => @id)%>
+ <%=f.submit "Update Status"%>
+
+<%end%>

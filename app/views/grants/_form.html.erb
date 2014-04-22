@@ -12,9 +12,9 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  
+    cats<br>
+    <%= f.select :name, @cat_options%>
+    <%= link_to 'New catogray', new_projectcat_path %>
   </div>
   <div class="field">
     sub-cats<br>
@@ -58,4 +58,5 @@
   <div class="actions">
     <%= f.submit "Create Grant" %>
   </div>
+
 <% end %>

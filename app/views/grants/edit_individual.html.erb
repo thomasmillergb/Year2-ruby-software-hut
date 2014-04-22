@@ -1,0 +1,11 @@
+<% title "Edit Grants" %>
+
+<% form_tag update_individual_grants_path, :method => :put do %>
+  <% for grant in @grants %>
+     <%fields_for "grants[]",grant do |f|%>
+          <h2> <%= h grant.name%></h2>
+     <%end%>
+
+   <%end%>
+
+<%end%>

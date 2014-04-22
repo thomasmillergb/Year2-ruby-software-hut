@@ -112,6 +112,6 @@
 
     def make_time_from_minute_and_day_delta(event_time)
       params[:minute_delta].to_i.minutes.from_now((params[:day_delta].to_i).days.from_now(event_time))
-    end
-  end
+end
+end
 

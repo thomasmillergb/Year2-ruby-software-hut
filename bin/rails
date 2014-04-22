@@ -1,4 +1,7 @@
 #!/usr/bin/env ruby
-APP_PATH = File.expand_path('../../config/application',  __FILE__)
-require_relative '../config/boot'
-require 'rails/commands'
+
+ENGINE_ROOT = File.expand_path('../..', __FILE__)
+ENGINE_PATH = File.expand_path('../../lib/fullcalendar_engine/engine',__FILE__)
+
+require 'rails/all'
+require 'rails/engine/commands'

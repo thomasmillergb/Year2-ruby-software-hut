@@ -1,0 +1,20 @@
+<h1>Edit Grants </h1>
+<%#= debug @grants %>
+
+<%= form_tag update_individual_studentships_path, :method => :put do %>
+
+
+ <% for grant in @grants %>
+
+     <%=fields_for "grants[]",grant do |f|%>
+
+    <h2> <%= grant.code%></h2>
+ <%= render "field3", :f => f %>
+
+     <hr class="subtle-divider">
+     <%end%>
+
+   <%end%>
+<p><%= submit_tag "Submit" %></p>
+<%end%>
+

@@ -27,7 +27,8 @@
     <%= f.label :task_id %><br>
     <%= f.number_field :task_id %>
   </div>
-  <div class="actions">
+<%= f.hidden_field :id, :value =>  params[:id]%> 
+ <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>

@@ -1,0 +1,5 @@
+label {display:block;}
+label ~ input[type="checkbox"] ~ div {display:none; margin-left:1em;}
+label ~ input[type="checkbox"]:checked ~ div {display:inline;}
+
+

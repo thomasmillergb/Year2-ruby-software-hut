@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140324144716) do
+=======
+ActiveRecord::Schema.define(version: 20140414103221) do
+>>>>>>> 379be2656ed80870b65f4d287ce447d988d26ebe
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,6 +90,7 @@ ActiveRecord::Schema.define(version: 20140324144716) do
     t.string   "awarded_to"
     t.date     "finalreport"
     t.integer  "grantsub_id"
+    t.boolean  "archive"
   end
 
   create_table "grantsubs", force: true do |t|
@@ -94,6 +99,38 @@ ActiveRecord::Schema.define(version: 20140324144716) do
     t.datetime "updated_at"
   end
 
+<<<<<<< HEAD
+=======
+  create_table "project_allocations", force: true do |t|
+    t.integer  "project_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "project_comments", force: true do |t|
+    t.string   "name"
+    t.string   "comment"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "project_id"
+  end
+
+  create_table "projectcats", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "projects", force: true do |t|
+    t.integer  "grant_id"
+    t.integer  "studentship_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+>>>>>>> 379be2656ed80870b65f4d287ce447d988d26ebe
   create_table "sessions", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -155,13 +192,47 @@ ActiveRecord::Schema.define(version: 20140324144716) do
     t.date     "m36date"
     t.date     "enddate"
     t.date     "tdate"
+    t.integer  "status"
+    t.boolean  "archive"
   end
 
+<<<<<<< HEAD
   create_table "tests", force: true do |t|
     t.date     "dob"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "hello"
+=======
+  create_table "sub_tasks", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.date     "enddate"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "task_id"
+    t.integer  "status"
+  end
+
+  create_table "task_comments", force: true do |t|
+    t.string   "name"
+    t.string   "comment"
+    t.integer  "user_id"
+    t.integer  "task_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tasks", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.date     "startdate"
+    t.date     "enddate"
+    t.integer  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "project_id"
+    t.boolean  "archive"
+>>>>>>> 379be2656ed80870b65f4d287ce447d988d26ebe
   end
 
   create_table "type_of_funders", force: true do |t|

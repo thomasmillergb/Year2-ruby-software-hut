@@ -13,6 +13,8 @@ class ProjectCommentsController < ApplicationController
   # GET /project_comments/new
   def new
     @project_comment = ProjectComment.new
+#    @project_comment.project_id = @project_id.id
+   # @project_id =Projec_id])
   end
 
   # GET /project_comments/1/edit
@@ -21,10 +23,13 @@ class ProjectCommentsController < ApplicationController
 
   # POST /project_comments
   def create
-    @project_comment = ProjectComment.new(project_comment_params)
+     @id=  params[:project_id]
+       
+     @project_comment= ProjectComment.new(project_comment_params)
     @project_comment.created_at = DateTime.now
+    @project_comment.user_id = 1
     if @project_comment.save
-      redirect_to @project_comment, notice: 'Project comment was successfully created.'
+      redirect_to tasks_path(:project_id => @project_comment.project_id ), notice: 'Comment was successfully posted.'
     else
       render action: 'new'
     end
@@ -53,6 +58,7 @@ class ProjectCommentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def project_comment_params
-      params.require(:project_comment).permit(:name, :comment, :user_id, :project_id)
+      params.require(:project_comment).permit(:name, :comment,:project_id)
     end
 end
+

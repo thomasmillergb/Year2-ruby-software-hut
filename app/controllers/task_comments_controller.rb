@@ -4,6 +4,9 @@ class TaskCommentsController < ApplicationController
   # GET /task_comments
   def index
     @task_comments = TaskComment.all
+    @users = User.all
+    @task_comment = TaskComment.all
+    @project_comment.all
   end
 
   # GET /task_comments/1
@@ -22,9 +25,11 @@ class TaskCommentsController < ApplicationController
   # POST /task_comments
   def create
     @task_comment = TaskComment.new(task_comment_params)
-
+    
+		#change to seesion id
+		@task_comment.user_id = 1
     if @task_comment.save
-      redirect_to @task_comment, notice: 'Task comment was successfully created.'
+      redirect_to sub_tasks_path(:id => @task_comment.task_id) , notice: 'Sub Task comment was successfully created.'
     else
       render action: 'new'
     end
@@ -53,6 +58,6 @@ class TaskCommentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def task_comment_params
-      params.require(:task_comment).permit(:name, :comment, :user_id, :task_id)
+      params.require(:task_comment).permit(:name, :comment, :task_id)
     end
 end

@@ -1,9 +1,11 @@
-
-
+<link rel="stylesheet" type="text/css" media="all" href="assets/stylesheets/hideshow.css">
+<%= form_tag edit_multiple_projects_path do |f| %>
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th></th>
+      <th>Catogray</th>
+      <th>Sub Catogray</th>
       <th>Start</th>
       <th>Deadline</th>
       <th>Status</th>
@@ -11,7 +13,7 @@
       <th>Awarded To</th>
       <th>Grant Code</th>
       <th>Final Report</th>
-      <th></th>
+      <th>Change Status </th>
     </tr>
   </thead>
 
@@ -19,29 +21,37 @@
    
       
     <% @grants.each do |grant| %>
-      
+
+    <%if grant.archive ==false%>  
       <tr>
-        
-        <td><%= grant.name %></td>
+        <td><%= check_box_tag "grant_ids[]",grant.id%> </td>
+        <td><%= (Projectcat.find(grant.name)).name %></td>
+        <td><%= (Grantsub.find(grant.grantsub_id)).name%></td>
         <td><%= grant.start %></td>
         <td><%= grant.deadline %></td>
-        <td><%= grant.status %></td>
-        <td><%= grant.funder_id %></td>
+        <td><%= (Status.find(grant.status)).name  %></td>
+	<td><%= Funder.find(grant.funder_id).name %></td>
         <td><%= grant.code %></td>        
         <td><%= grant.awarded_to %></td>
-	<td><%= grant.finalreport %></td>
+	<td><%= grant.finalreport %></td>	
 
-        <td><%= link_to 'List Tasks', tasks_path(Project.find_by_grant_id(grant)) %>
+        <td><%= link_to 'Change Status', status_projects_path(:id => grant.id),:method => :post%></td>
+        <td><%= link_to 'List Tasks', tasks_path(:project_id => Project.find_by_grant_id(grant)) %> </td>
         <td><%= link_to 'Destroy', grant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-     
- </tr>
-     
-    <% end %>
-    
-  
+      </tr>
+    <%end%>
+ <%end%> 
   </tbody>
 </table>
 
 <br>
 
+    <%=submit_tag "Edit Checked", :name=> 'individual'%>
+    <%=submit_tag "Change Checked to", :name =>'multiple'%>
+
+    <%=submit_tag "Archive", :name =>'archive'%>
+    <%=submit_tag "Change Checked Status to", :name =>'stat'%>
+
+<%= select_tag(:status ,options_from_collection_for_select(Status.all, :id, :name)) %>
+    <% end %>
 <%= link_to 'New Grant', new_grant_path %>

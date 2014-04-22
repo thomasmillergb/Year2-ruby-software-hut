@@ -1,4 +1,4 @@
-  class Event < ActiveRecord::Base
+class Event < ActiveRecord::Base
 
     attr_accessor :period, :frequency, :commit_button
 
@@ -14,12 +14,13 @@
       :months    => "Monthly",
       :years     => "Yearly"
     }
+
     
     def validate_timings
       if (starttime >= endtime) and !all_day
         errors[:base] << "Start Time must be less than End Time"
       end
-    end
+end
 
     def update_events(events, event)
       events.each do |e|

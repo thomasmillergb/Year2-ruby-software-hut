@@ -1,8 +1,5 @@
 HutSample::Application.routes.draw do
 
-mount FullcalendarEngine::Engine => "/fullcalendar_engine"
-	
-
  
   get "settings/index"
   get "welcome/auth"
@@ -56,7 +53,7 @@ mount FullcalendarEngine::Engine => "/fullcalendar_engine"
   #Call back route for google API
   get "/auth/:provider/callback" => "sessions#create"
 
-  root:to => 'events#index'  
+  root "welcome#index"  
   resources :events do
     collection do
       get :get_events
