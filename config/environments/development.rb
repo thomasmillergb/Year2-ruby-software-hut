@@ -1,4 +1,7 @@
 HutSample::Application.configure do
+
+  config.action_mailer.default_url_options = { :host => 'https://aca12dp-project3.dev3.software-hut.org.uk/' }
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
