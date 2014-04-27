@@ -1,5 +1,5 @@
 class GrantsController < ApplicationController
-  http_basic_authenticate_with :name => "dario", :password => "rings"
+
   before_action :set_grant, only: [:show, :edit, :update, :destroy]
 
   # GET /grants
