@@ -94,13 +94,7 @@ end
 #
     redirect_to root_path, notice: 'Updated Successful'
 
-<<<<<<< HEAD
-@calander = Calander.new()
-@calander.date = @grant.deadline
-@calander.save
-=======
 end
->>>>>>> 379be2656ed80870b65f4d287ce447d988d26ebe
 
   # POST /grants
   def create
