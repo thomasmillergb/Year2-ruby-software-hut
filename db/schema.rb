@@ -11,14 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20140324144716) do
-=======
 ActiveRecord::Schema.define(version: 20140414103221) do
->>>>>>> 379be2656ed80870b65f4d287ce447d988d26ebe
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "add_users", force: true do |t|
+    t.string   "name"
+    t.string   "password"
+    t.integer  "level"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "awards", force: true do |t|
     t.string   "name"
@@ -99,8 +104,6 @@ ActiveRecord::Schema.define(version: 20140414103221) do
     t.datetime "updated_at"
   end
 
-<<<<<<< HEAD
-=======
   create_table "project_allocations", force: true do |t|
     t.integer  "project_id"
     t.integer  "user_id"
@@ -130,7 +133,6 @@ ActiveRecord::Schema.define(version: 20140414103221) do
     t.datetime "updated_at"
   end
 
->>>>>>> 379be2656ed80870b65f4d287ce447d988d26ebe
   create_table "sessions", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -196,13 +198,6 @@ ActiveRecord::Schema.define(version: 20140414103221) do
     t.boolean  "archive"
   end
 
-<<<<<<< HEAD
-  create_table "tests", force: true do |t|
-    t.date     "dob"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "hello"
-=======
   create_table "sub_tasks", force: true do |t|
     t.string   "name"
     t.string   "description"
@@ -232,7 +227,6 @@ ActiveRecord::Schema.define(version: 20140414103221) do
     t.datetime "updated_at"
     t.integer  "project_id"
     t.boolean  "archive"
->>>>>>> 379be2656ed80870b65f4d287ce447d988d26ebe
   end
 
   create_table "type_of_funders", force: true do |t|
