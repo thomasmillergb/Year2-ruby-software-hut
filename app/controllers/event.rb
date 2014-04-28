@@ -52,5 +52,5 @@ end
       def make_date_time(original_time, difference_time, event_time = nil)
         DateTime.parse("#{original_time.hour}:#{original_time.min}:#{original_time.sec}, #{event_time.try(:day) || difference_time.day}-#{difference_time.month}-#{difference_time.year}")
       end 
-  end
+ 
 end

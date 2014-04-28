@@ -33,65 +33,6 @@ ActiveRecord::Schema.define(version: 20140427153709) do
     t.datetime "updated_at"
   end
 
-  create_table "dario_users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "dario_users", ["email"], name: "index_dario_users_on_email", unique: true, using: :btree
-  add_index "dario_users", ["reset_password_token"], name: "index_dario_users_on_reset_password_token", unique: true, using: :btree
-
-  create_table "dariob_users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "dariob_users", ["email"], name: "index_dariob_users_on_email", unique: true, using: :btree
-  add_index "dariob_users", ["reset_password_token"], name: "index_dariob_users_on_reset_password_token", unique: true, using: :btree
-
-  create_table "darioc_users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "darioc_users", ["email"], name: "index_darioc_users_on_email", unique: true, using: :btree
-  add_index "darioc_users", ["reset_password_token"], name: "index_darioc_users_on_reset_password_token", unique: true, using: :btree
-
-  create_table "defaults", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "deliverables", force: true do |t|
     t.integer  "grants_id"
     t.string   "name"
@@ -102,24 +43,6 @@ ActiveRecord::Schema.define(version: 20140427153709) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "dusers", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "dusers", ["email"], name: "index_dusers_on_email", unique: true, using: :btree
-  add_index "dusers", ["reset_password_token"], name: "index_dusers_on_reset_password_token", unique: true, using: :btree
 
   create_table "fullcalendar_engine_event_series", force: true do |t|
     t.integer  "frequency",  default: 1
@@ -143,24 +66,6 @@ ActiveRecord::Schema.define(version: 20140427153709) do
   end
 
   add_index "fullcalendar_engine_events", ["event_series_id"], name: "index_fullcalendar_engine_events_on_event_series_id", using: :btree
-
-  create_table "fullcalendar_engine_users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "fullcalendar_engine_users", ["email"], name: "index_fullcalendar_engine_users_on_email", unique: true, using: :btree
-  add_index "fullcalendar_engine_users", ["reset_password_token"], name: "index_fullcalendar_engine_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "funders", force: true do |t|
     t.string   "name"
@@ -199,78 +104,6 @@ ActiveRecord::Schema.define(version: 20140427153709) do
     t.datetime "updated_at"
   end
 
-  create_table "installs", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "installs", ["email"], name: "index_installs_on_email", unique: true, using: :btree
-  add_index "installs", ["reset_password_token"], name: "index_installs_on_reset_password_token", unique: true, using: :btree
-
-  create_table "members", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "members", ["email"], name: "index_members_on_email", unique: true, using: :btree
-  add_index "members", ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true, using: :btree
-
-  create_table "models", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "models", ["email"], name: "index_models_on_email", unique: true, using: :btree
-  add_index "models", ["reset_password_token"], name: "index_models_on_reset_password_token", unique: true, using: :btree
-
-  create_table "mpusers", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "mpusers", ["email"], name: "index_mpusers_on_email", unique: true, using: :btree
-  add_index "mpusers", ["reset_password_token"], name: "index_mpusers_on_reset_password_token", unique: true, using: :btree
-
   create_table "project_allocations", force: true do |t|
     t.integer  "project_id"
     t.integer  "user_id"
@@ -299,24 +132,6 @@ ActiveRecord::Schema.define(version: 20140427153709) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "pusers", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "pusers", ["email"], name: "index_pusers_on_email", unique: true, using: :btree
-  add_index "pusers", ["reset_password_token"], name: "index_pusers_on_reset_password_token", unique: true, using: :btree
 
   create_table "sessions", force: true do |t|
     t.datetime "created_at"
@@ -410,60 +225,6 @@ ActiveRecord::Schema.define(version: 20140427153709) do
     t.integer  "task_id"
     t.integer  "status"
   end
-
-  create_table "sys_users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "sys_users", ["email"], name: "index_sys_users_on_email", unique: true, using: :btree
-  add_index "sys_users", ["reset_password_token"], name: "index_sys_users_on_reset_password_token", unique: true, using: :btree
-
-  create_table "syst_users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "syst_users", ["email"], name: "index_syst_users_on_email", unique: true, using: :btree
-  add_index "syst_users", ["reset_password_token"], name: "index_syst_users_on_reset_password_token", unique: true, using: :btree
-
-  create_table "sysusers", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "sysusers", ["email"], name: "index_sysusers_on_email", unique: true, using: :btree
-  add_index "sysusers", ["reset_password_token"], name: "index_sysusers_on_reset_password_token", unique: true, using: :btree
 
   create_table "task_comments", force: true do |t|
     t.string   "name"
