@@ -1,7 +1,7 @@
 HutSample::Application.routes.draw do
   
 
-  devise_for :sheff_users
+
   devise_for :users
   get "login/index"
   resources :projectcats
