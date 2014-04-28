@@ -1,5 +1,10 @@
 <link rel="stylesheet" type="text/css" media="all" href="assets/stylesheets/hideshow.css">
 <%= form_tag edit_multiple_projects_path do |f| %>
+
+<div id="search">
+<%= text_field_tag :search, params[:search] %>
+<%= submit_tag "Search", :name => 'search' %>
+</div>
 <table>
   <thead>
     <tr>
@@ -51,7 +56,7 @@
 
     <%=submit_tag "Archive", :name =>'archive'%>
     <%=submit_tag "Change Checked Status to", :name =>'stat'%>
-
+    
 <%= select_tag(:status ,options_from_collection_for_select(Status.all, :id, :name)) %>
     <% end %>
 <%= link_to 'New Grant', new_grant_path %>

@@ -38,7 +38,8 @@ class ProjectsController < ApplicationController
    @options_sub = list
    @options = oplist
    render action:  'edit_multiple'
- 
+ elsif params[:search]
+   @projects = Project.search(params[:search])
 elsif params[:archive]
 @grants = Grant.find(params[:grant_ids])
 
