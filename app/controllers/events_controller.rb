@@ -6,6 +6,7 @@
     before_filter :determine_event_type, only: :create
 
     def create
+      
       if @event.save
         render nothing: true
       else
@@ -104,7 +105,10 @@
 
     def determine_event_type
       if params[:event][:period] == "Does not repeat"
-        @event = Event.new(event_params)
+        @event =Event.new(event_params)
+
+
+
       else
         @event = EventSeries.new(event_params)
       end
