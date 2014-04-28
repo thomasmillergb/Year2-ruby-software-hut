@@ -10,6 +10,14 @@ class ProjectsController < ApplicationController
 @grane = Grant.new
  @project_comment = Project.new
 @status = statusbox
+  if params[:search]
+    @grants = Grant.find(:all, :conditions => ['code LIKE ?', "%#{params[:search]}%"])
+  elsif params[:searchg]
+    
+    @studentships = Studentship.find(:all, :conditions => ['code LIKE ?', "%#{params[:search]}%"])
+  end
+  
+ #  @grants = Grant.search(params[:search])
   end
 
   # GET /projects/1
@@ -38,8 +46,8 @@ class ProjectsController < ApplicationController
    @options_sub = list
    @options = oplist
    render action:  'edit_multiple'
- elsif params[:search]
-   @projects = Project.search(params[:search])
+# elsif params[:search]
+#   @grants = Grant.search(params[:search])
 elsif params[:archive]
 @grants = Grant.find(params[:grant_ids])
 
@@ -117,6 +125,7 @@ elsif params[:individuals]
      @grants = Studentship.find(params[:grant_ids])
    render action: 'edit_individuals'
 end
+  
   end
   def update_individual
   @grants = Grant.update(params[:grants].keys, params[:grants].values).reject { |p| p.errors.empty? }

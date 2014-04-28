@@ -1,3 +1,8 @@
+<%= form_tag projects_path, :method => 'get' do %>
+  <%= text_field_tag :searchg, params[:searchg] %>
+  <%= submit_tag "Search", :name => nil %>
+<% end %>
+
 <%= form_tag edit_multiple_projects_path do |f| %>
 
 

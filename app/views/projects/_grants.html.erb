@@ -1,10 +1,36 @@
 <link rel="stylesheet" type="text/css" media="all" href="assets/stylesheets/hideshow.css">
+<%= form_tag projects_path, :method => 'get' do %>
+<div id = "search">
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search code", :name => nil %>
+</div>
+<script src="assets/javascripts/forms.js"></script><input type="checkbox" name="c1" onclick="showMe('filter')">Set Final Report Date
+<a href="#" onclick="showMe('filter');">Filter</a>
+<div id = "filter">
+<h2>Filter By</h2>
+Catogrey
+<%=check_box_tag 'namec' %>
+<%= select_tag(:name ,options_from_collection_for_select(Projectcat.all, :id, :name)) %>
+
+Sub catogray
+<%=check_box_tag 'grantsub' %>
+<%= select_tag(:grantsub_id ,options_from_collection_for_select(Grantsub.all, :id, :name)) %>
+
+Funder
+<%=check_box_tag 'funder' %>
+<%= select_tag(:funder_id ,options_from_collection_for_select(Funder.all, :id, :name)) %>
+
+Status
+<%=check_box_tag 'statusc' %>
+<%= select_tag(:status ,options_from_collection_for_select(Status.all, :id, :name)) %>
+
+<%=submit_tag "Filter By", :name=> 'Filter'%>
+
+</div>
+
+<% end %>
 <%= form_tag edit_multiple_projects_path do |f| %>
 
-<div id="search">
-<%= text_field_tag :search, params[:search] %>
-<%= submit_tag "Search", :name => 'search' %>
-</div>
 <table>
   <thead>
     <tr>
@@ -14,9 +40,9 @@
       <th>Start</th>
       <th>Deadline</th>
       <th>Status</th>
-      <th>Funder</th>
+      <th>Funder  </th>
+      <th>Grant Code  </th>
       <th>Awarded To</th>
-      <th>Grant Code</th>
       <th>Final Report</th>
       <th>Change Status </th>
     </tr>
@@ -27,8 +53,16 @@
       
     <% @grants.each do |grant| %>
 
-    <%if grant.archive ==false%>  
-      <tr>
+    <%if grant.archive ==false%>
+ <% if  grant.name == params[:name] ||params[:namec] ==nil%>
+
+
+
+  <%  if  grant.grantsub_id == Grantsub.find(params[:grantsub_id]).id  ||params[:grantsub]==nil  %>
+
+  <% if  grant.funder_id == Funder.find(params[:funder_id]).id ||  params[:funderc]==nil %>
+  <% if  grant.status == Status.find(params[:status]).id || params[:statusc]==nil %>  
+      <td>
         <td><%= check_box_tag "grant_ids[]",grant.id%> </td>
         <td><%= (Projectcat.find(grant.name)).name %></td>
         <td><%= (Grantsub.find(grant.grantsub_id)).name%></td>
@@ -44,6 +78,10 @@
         <td><%= link_to 'List Tasks', tasks_path(:project_id => Project.find_by_grant_id(grant)) %> </td>
         <td><%= link_to 'Destroy', grant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+    <%end%>
+    <%end%>
+    <%end%>
+    <%end%>
     <%end%>
  <%end%> 
   </tbody>
