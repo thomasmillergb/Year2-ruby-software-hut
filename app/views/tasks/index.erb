@@ -1,0 +1,60 @@
+<%=stylesheet_link_tag("hideshow") %>
+<div class = note>
+<p id="notice"><%= notice %></p>
+</div>
+<%= form_tag edit_bulk_tasks_path do |f| %>
+
+<h1>Tasks</h1>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Startdate</th>
+      <th>Enddate</th>
+      <th>Status</th>
+      <th>Chnage Status</th>
+      <th>Archive?</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+   
+    <% if @project_id.id == task.project_id%>
+       <%if task.archive == false%> 
+
+ <tr>
+        <td><%= check_box_tag "task_ids[]",task.id%> </td>
+        <td><%= task.name %></td>
+        <td><%= task.description %></td>
+        <td><%= task.startdate %></td>
+        <td><%= task.enddate %></td>
+        <td><%= Status.find(task.status).name %></td>
+
+        <td><%= link_to 'Sub Tasks', sub_tasks_path(:id =>task.id) %>
+ </td>
+        <td><%= link_to 'Show', task %></td>
+        <td><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+
+    <% end %>
+   <% end %>
+  <%end %>
+  </tbody>
+</table>
+<br>
+    <%=submit_tag "Archive", :name =>'arc'%>
+    <%=submit_tag "Change Checked Status to", :name =>'stats'%>
+<%= select_tag(:status ,options_from_collection_for_select(Status.all, :id, :name)) %>
+
+<%end%>
+<br>
+<%= link_to 'New Task', new_task_path(:project_id => Project.find( @project_id.id)) %>
+	<%= render 'showcomments' %>
+        
+        <%= render 'commentform' %>
+

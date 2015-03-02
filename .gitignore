@@ -1,0 +1,35 @@
+<<<<<<< HEAD
+.bundle
+db/*.sqlite3
+config/database.yml
+config/settings.yml
+log/*.log
+tmp/*
+
+.DS_Store
+coverage/*
+metrics/*
+doc/*
+.yardoc/*
+.sass-cache/
+vendor/bundle/*
+
+*.swp
+
+.ruby-version
+.ruby-gemset
+.rvmrc
+/.project
+=======
+*.gem
+*~
+.bundle
+.rvmrc
+.yardoc
+Gemfile.lock
+coverage/*
+doc/*
+log/*
+measurement/*
+pkg/*
+>>>>>>> 507132aa012bef84bbf8282499fb3b78bb8e7da7

@@ -1,0 +1,6 @@
+
+<%=  f.select(:status , options_for_select([['Allocated',1],['Complete',2]])) %>
+<%= f.hidden_field(:id, :value => granta)%>
+ <%=f.submit "Update Status", :name =>'cstatus', :ida => granta%>
+<%=debug granta%>
+

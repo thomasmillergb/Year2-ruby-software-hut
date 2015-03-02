@@ -1,0 +1,45 @@
+<h1>Listing grants</h1>
+<%= form_tag edit_individual_grants_path do %>
+
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Start</th>
+      <th>Deadline</th>
+      <th>Status</th>
+      <th>Funder</th>
+      <th>Awarded To</th>
+      <th>Grant Code</th>
+      <th>Final Report</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @grants.each do |grant| %>
+      
+
+      <tr>
+	<td><%= check_box_tag "grant_ids[]", grant.id %></td>
+        <td><%= grant.name %></td>
+        <td><%= grant.start %></td>
+        <td><%= grant.deadline %></td>
+        <td><%= grant.status %></td>
+        <td><%= grant.funder_id %></td>
+        <td><%= grant.code %></td>        
+        <td><%= grant.awarded_to %></td>
+	<td><%= grant.finalreport %></td>
+        <td><%= link_to 'Show', grant %></td>
+        <td><%= link_to 'Edit', edit_grant_path(grant) %></td>
+        <td><%= link_to 'Destroy', grant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+   <%= submit_tag "Edit Checked" %>
+<%end%>
+<br>
+<%= link_to 'New Grant', new_grant_path %>

@@ -1,0 +1,38 @@
+#container {
+	position: absolute;
+	left: 23%;
+	top: 40%;
+	font-family: "Cambria";
+}
+
+#login_box {
+	width: 700px;
+	height: 100%;
+	
+}
+
+#login_std {
+	border-style: solid;
+	border-width: 0px 1px 0px 0px;
+	float: left;
+	width: 50%;
+}
+
+#login_social {
+	float: right;	
+}
+
+#login_header {
+	padding-top: 10px;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+#login_form {
+	padding-top:10px;	
+}
+
+td.login {
+	border-style: dashed;
+	border-width: 0px 1px 0px 0px;
+}

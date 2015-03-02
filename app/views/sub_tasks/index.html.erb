@@ -1,0 +1,44 @@
+<h1>Sub Tasks</h1>
+<%= form_tag edit_multiple_sub_tasks_path do |f| %>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Enddate</th>
+      <th>Status</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+    <% @sub_tasks.each do |sub_task| %>
+    <% if @task_id.id ==sub_task.task_id%>
+      <tr>
+        <td><%= check_box_tag "task_ids[]",sub_task.id%> </td>
+        <td><%= sub_task.name %></td>
+        <td><%= sub_task.description %></td>
+        <td><%= sub_task.enddate %></td>
+        <td><%= sub_task.status%></td>
+        <td><%= link_to 'Change Status', status_sub_tasks_path(:id => sub_task.id),:method => :post%></td>
+        <td><%= link_to 'Show', sub_task %></td>
+        <td><%= link_to 'Edit', edit_sub_task_path(sub_task, :task_id => @task_id) %></td>
+        <td><%= link_to 'Destroy', sub_task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+   <% end %>
+  </tbody>
+</table>
+
+<br>
+    <%#=submit_tag "Change Checked to", :name =>'multiple'%>
+
+<%end%>
+<%= link_to 'New Sub task', new_sub_task_path(:task_id => @task_id) %>
+
+
+<%= render 'showcomments' %>
+<%= render 'commentform' %>

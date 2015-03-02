@@ -1,0 +1,84 @@
+<%= form_tag projects_path, :method => 'get' do %>
+  <%= text_field_tag :searchg, params[:searchg] %>
+  <%= submit_tag "Search", :name => nil %>
+<% end %>
+
+<%= form_tag edit_multiple_projects_path do |f| %>
+
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Student subcat</th>
+      <th>Code</th>
+      <th>Startdate</th>
+      <th>Enddate</th>
+      <th>Status</th>
+      <th>Fire</th>
+      <th>Screenttest</th>
+      <th>Training</th>
+      <th>Firestatus</th>
+      <th>Screenstatus</th>
+      <th>Trainstatus</th>
+      <th>M12</th>
+      <th>M12date</th>
+      <th>M24</th>
+      <th>M24date</th>
+      <th>M36</th>
+      <th>M36date</th>
+      <th>Complete</th>
+      <th>Fire Date</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @studentships.each do |studentship| %>
+	   <%if studentship.archive == false%>
+
+      <tr>
+        <td><%= check_box_tag "grant_ids[]",studentship.id%> </td>
+        <td><%= studentship.student_subcat_id %></td>
+        <td><%= studentship.code %></td>
+        <td><%= studentship.startdate %></td>
+        <td><%= studentship.enddate %></td>
+        <td><%= Status.find(studentship.status).name %></td>
+        <td><%= studentship.fire %></td>
+        <td><%= studentship.screenttest %></td>
+        <td><%= studentship.training %></td>
+        <td><%= studentship.firestatus %></td>
+        <td><%= studentship.screenstatus %></td>
+        <td><%= studentship.trainstatus %></td>
+        <td><%= studentship.m12 %></td>
+        <td><%= studentship.m12date %></td>
+        <td><%= studentship.m24 %></td>
+        <td><%= studentship.m24date %></td>
+        <td><%= studentship.m36 %></td>
+        <td><%= studentship.m36date%></td>
+        <td><%= studentship.complete %></td>        
+        <td><%= studentship.fdate %></td>
+
+        <td><%= studentship.archive %></td>
+        <td><%= link_to 'Change Status', statuss_projects_path(:id => studentship.id),:method => :post%></td>		
+        <td><%= link_to 'List Tasks', tasks_path(:project_id => Project.find_by_studentship_id(studentship)) %>
+        <td><%= link_to 'Edit', edit_studentship_path(studentship) %></td>
+        <td><%= link_to 'Destroy', studentship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+    <%=submit_tag "Edit Checked", :name=> 'individuals'%>
+    <%=submit_tag "Change Checked to", :name =>'multiples'%>
+    <%=submit_tag "Archive", :name =>'arc'%>
+
+    <%=submit_tag "Change Checked Status to", :name =>'stats'%>
+    <%= select_tag(:status ,options_from_collection_for_select(Status.all, :id, :name)) %>
+
+    <% end %>
+
+<%= link_to 'New Studentship', new_studentship_path %>

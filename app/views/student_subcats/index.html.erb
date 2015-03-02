@@ -1,0 +1,27 @@
+<h1>Listing student_subcats</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @student_subcats.each do |student_subcat| %>
+      <tr>
+        <td><%= student_subcat.name %></td>
+        <td><%= link_to 'Show', student_subcat %></td>
+        <td><%= link_to 'Edit', edit_student_subcat_path(student_subcat) %></td>
+        <td><%= link_to 'Destroy', student_subcat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Student subcat', new_student_subcat_path %>
